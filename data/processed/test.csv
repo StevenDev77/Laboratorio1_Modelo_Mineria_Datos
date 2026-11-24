@@ -1,0 +1,278 @@
+id,language,source,code_snippet,is_vulnerable,category,cwe,owasp_top10,owasp_api,severity
+SAFE_0404,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_0 = Depends(get_current_user)):
+    order = db.query(Shipment_0).filter(Shipment_0.id == order_id, Shipment_0.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_0 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0123,javascript,RealWorld_Microservices,"router.post('/ops_admin_1/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_1' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+SAFE_0445,python,Controlled_Lab,"class Operator_5UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0418,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0059,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0161,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+SAFE_0503,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_3/{id}"")
+public ResponseEntity<?> deleteOperator_3(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0234,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0190,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_3) {
+  return crypto.createHash('md5').update(pass_3).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+SAFE_0421,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0511,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0338,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_0.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0264,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0066,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0219,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9982';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+SAFE_0437,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0392,python,Controlled_Lab,"stmt = select(Operator_0).where(Operator_0.email == email, Operator_0.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0433,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0040,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0253,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+SAFE_0520,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0490,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0302,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+SAFE_0504,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_4/{id}"")
+public ResponseEntity<?> deleteOperator_4(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0256,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0074,python,RealWorld_Microservices,"@app.get('/api/receipts_2/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0083,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0162,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0363,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0201,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0273,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8081
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0312,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_0: int = 1000000):
+    # Unrestricted query max_res_0 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_0(max_res_0).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0028,java,OWASP_Benchmark,"String query = ""SELECT * FROM users_v0 WHERE username = '"" + username + ""' AND password = '"" + pwd + ""'"";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0233,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0016,javascript,NIST_SARD,"const query = `SELECT * FROM users_v0 WHERE email = '${req.body.email}'`;
+const result = await db.query(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0184,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+SAFE_0386,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_0 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0023,typescript,NIST_SARD,"const sqlQuery = `SELECT id, balance FROM accounts WHERE user_id = ${id}`;
+return await this.dataSource.query(sqlQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+SAFE_0417,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0167,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0118,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+SAFE_0439,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0073,python,RealWorld_Microservices,"@app.get('/api/receipts_1/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0051,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0255,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0106,java,RealWorld_Microservices,"@GetMapping(""/api/leases_4/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0342,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_4.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0187,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_0) {
+  return crypto.createHash('md5').update(pass_0).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0155,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0310,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_3: str):
+    # No rate max_res_3ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_3, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+SAFE_0388,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_2 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0135,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0120,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0215,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_3_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+SAFE_0396,python,Controlled_Lab,"stmt = select(Operator_4).where(Operator_4.email == email, Operator_4.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0216,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_4_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+SAFE_0469,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0350,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_0 updateClient_0(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_0 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0197,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0082,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0026,typescript,NIST_SARD,"const rawQuery = 'SELECT * FROM audit_logs WHERE action = \'' + filter + '\'';
+return this.repo.query(rawQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0382,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_2 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0405,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_1 = Depends(get_current_user)):
+    order = db.query(Shipment_1).filter(Shipment_1.id == order_id, Shipment_1.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_1 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0024,typescript,NIST_SARD,"const sqlQuery = `SELECT id, balance FROM accounts WHERE user_id = ${id}`;
+return await this.dataSource.query(sqlQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+SAFE_0424,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0317,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_0er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+SAFE_0524,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0290,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_1);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0291,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_2);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0030,java,OWASP_Benchmark,"String query = ""SELECT * FROM users_v2 WHERE username = '"" + username + ""' AND password = '"" + pwd + ""'"";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0362,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0427,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0172,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_0):
+    return hashlib.md5(pass_0.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0381,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_1 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0093,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0301,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0249,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0292,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_3);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0054,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_2.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0046,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_4.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica

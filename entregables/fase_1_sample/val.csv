@@ -1,0 +1,282 @@
+id,language,source,code_snippet,is_vulnerable,category,cwe,owasp_top10,owasp_api,severity
+VULN_0044,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_2.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+SAFE_0517,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_5Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0202,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+SAFE_0475,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0052,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_0.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+SAFE_0514,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_2Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0364,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0176,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_4):
+    return hashlib.md5(pass_4.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0181,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_4):
+    return hashlib.sha1(payload_4).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+SAFE_0460,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0094,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0133,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0303,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0159,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0019,javascript,NIST_SARD,"const sql = 'SELECT * FROM catalog_v0 WHERE category = \'' + category + '\'';
+connection.query(sql, (err, rows) => {});",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+SAFE_0465,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0360,python,Controlled_Lab,"try:
+    perform_critical_operation_4(wallet_4, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0365,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0457,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0017,javascript,NIST_SARD,"const query = `SELECT * FROM users_v1 WHERE email = '${req.body.email}'`;
+const result = await db.query(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0225,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0128,typescript,RealWorld_Microservices,"@Post('/ops_admin_1/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0242,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5000)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0232,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0131,typescript,RealWorld_Microservices,"@Post('/ops_admin_4/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+SAFE_0484,typescript,Controlled_Lab,"export class UpdateOperator_2ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0090,javascript,RealWorld_Microservices,"app.get('/api/records_3/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0356,python,Controlled_Lab,"try:
+    perform_critical_operation_0(wallet_0, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0467,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0095,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0150,python,OWASP_Benchmark,"def login(user, pwd_3):
+    # Plaintext pwd_3 comparison without timing attack protection
+    u = Account_3.query.filter_by(username=user).first()
+    if u and u.pwd_3 == pwd_3:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0257,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0068,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0323,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0195,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0298,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_3') target_url_3: string) {
+  const res = await fetch(target_url_3);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0175,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_3):
+    return hashlib.md5(pass_3.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0238,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_1_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9981",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+SAFE_0512,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_0Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0329,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_2 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0143,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+SAFE_0409,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_5 = Depends(get_current_user)):
+    order = db.query(Shipment_5).filter(Shipment_5.id == order_id, Shipment_5.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_5 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0166,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0261,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+SAFE_0422,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0107,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+SAFE_0397,python,Controlled_Lab,"stmt = select(Operator_5).where(Operator_5.email == email, Operator_5.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0281,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0351,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_1 updateClient_1(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_1 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0092,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0138,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0330,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_3 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0220,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9983';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0272,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8080
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+SAFE_0513,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_1Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0169,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0355,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_5 updateClient_5(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_5 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0380,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_0 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0394,python,Controlled_Lab,"stmt = select(Operator_2).where(Operator_2.email == email, Operator_2.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0387,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_1 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0032,java,OWASP_Benchmark,"String sql = ""DELETE FROM items WHERE item_code = '"" + code + ""'"";
+entityManager.createNativeQuery(sql).executeUpdate();",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0013,python,NIST_SARD,db.engine.execute('SELECT * FROM payments WHERE transaction_id = ' + req.params.get('txn')),1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0109,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+SAFE_0489,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0454,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0260,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+SAFE_0481,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_5() user: Operator_5Entity) {
+  return this.orderService.findOperator_5Shipment_5(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0423,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0035,java,OWASP_Benchmark,"String sql = String.format(""SELECT * FROM invoices WHERE client_id = '%s'"", clientId);
+return jdbcTemplate.queryForList(sql);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0332,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_0: dict):
+    user = db.query(Client_0).get(id)
+    for k, v in raw_data_0.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+SAFE_0497,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_3 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0295,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_0') target_url_0: string) {
+  const res = await fetch(target_url_0);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0137,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0050,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0318,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_1er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0343,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_5.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+SAFE_0498,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_4 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+VULN_0062,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0221,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9984';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta

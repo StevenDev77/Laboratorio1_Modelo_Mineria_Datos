@@ -1,0 +1,11 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "Microservicio de gestión de usuarios en NestJS / TypeScript",
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.0"
+  }
+}

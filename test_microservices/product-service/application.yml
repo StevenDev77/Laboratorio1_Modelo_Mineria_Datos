@@ -1,0 +1,19 @@
+server:
+  port: 3002
+  error:
+    # Vulnerabilidad Security Misconfiguration (OWASP A02:2025, OWASP API API8:2023, CWE-16)
+    include-stacktrace: always
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/productdb
+    username: root
+    # Vulnerabilidad Hardcoded Secret (OWASP A04:2025, CWE-798)
+    password: hardcoded_database_secret_admin_2026

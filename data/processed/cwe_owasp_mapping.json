@@ -1,0 +1,121 @@
+{
+  "mappings": [
+    {
+      "cwe": "CWE-89",
+      "name": "SQL Injection",
+      "owasp_top10_2025": "A05:2025",
+      "owasp_api_2023": "N/A",
+      "severity": "Alta",
+      "description": "El software construye una sentencia SQL utilizando entradas externas no neutralizadas, permitiendo manipular la estructura de la consulta.",
+      "recommendation": "Utilizar consultas parametrizadas (PreparedStatements), ORMs con binding seguro de parámetros y validación estricta de entradas."
+    },
+    {
+      "cwe": "CWE-78",
+      "name": "OS Command Injection",
+      "owasp_top10_2025": "A05:2025",
+      "owasp_api_2023": "N/A",
+      "severity": "Crítica",
+      "description": "Ejecución de comandos del sistema operativo concatenando directamente datos no confiables proporcionados por el usuario.",
+      "recommendation": "Evitar invocar shells del SO; emplear APIs nativas del lenguaje o pasar argumentos como listas separadas sin interprete shell habilitado."
+    },
+    {
+      "cwe": "CWE-639",
+      "name": "Broken Object Level Authorization (IDOR)",
+      "owasp_top10_2025": "A01:2025",
+      "owasp_api_2023": "API1:2023",
+      "severity": "Alta",
+      "description": "La API no valida si el usuario autenticado tiene permisos explícitos para acceder o modificar el objeto solicitado por su identificador.",
+      "recommendation": "Verificar en cada endpoint que el recurso solicitado pertenezca al usuario del token de sesión (verificación de pertenencia a nivel de servicio/repositorio)."
+    },
+    {
+      "cwe": "CWE-862",
+      "name": "Missing Function Level Authorization",
+      "owasp_top10_2025": "A01:2025",
+      "owasp_api_2023": "API5:2023",
+      "severity": "Alta",
+      "description": "Falta de control de acceso basada en roles o permisos a nivel de funciones administrativas o endpoints privilegiados.",
+      "recommendation": "Implementar middleware o decoradores de autorización (@PreAuthorize, @RolesAllowed, requireAdmin) en todos los endpoints sensibles."
+    },
+    {
+      "cwe": "CWE-287",
+      "name": "Improper Authentication",
+      "owasp_top10_2025": "A07:2025",
+      "owasp_api_2023": "API2:2023",
+      "severity": "Crítica",
+      "description": "Mecanismos deficientes de autenticación, ausencia de verificación de tokens JWT, algoritmos none o endpoints expuestos sin credenciales.",
+      "recommendation": "Validar firmas de tokens JWT con algoritmos robustos (RS256/ES256), forzar autenticación mutua o verificación de expiración."
+    },
+    {
+      "cwe": "CWE-327",
+      "name": "Use of a Broken or Risky Cryptographic Algorithm",
+      "owasp_top10_2025": "A04:2025",
+      "owasp_api_2023": "N/A",
+      "severity": "Media",
+      "description": "Uso de funciones de dispersión obsoletas (MD5, SHA1) o cifradores débiles (DES, ECB) para almacenamiento de contraseñas o datos confidenciales.",
+      "recommendation": "Adoptar funciones modernas de derivación de claves como Argon2id, PBKDF2 o bcrypt para credenciales y AES-GCM para cifrado simétrico."
+    },
+    {
+      "cwe": "CWE-798",
+      "name": "Use of Hard-coded Credentials",
+      "owasp_top10_2025": "A04:2025",
+      "owasp_api_2023": "API2:2023",
+      "severity": "Alta",
+      "description": "Contraseñas, API keys, secretos JWT o tokens insertados en texto claro dentro del código fuente o archivos de configuración.",
+      "recommendation": "Extraer secretos a variables de entorno, almacenes seguros (Vault, AWS Secrets Manager) e integrarlos con inyección en tiempo de despliegue."
+    },
+    {
+      "cwe": "CWE-16",
+      "name": "Configuration / Security Misconfiguration",
+      "owasp_top10_2025": "A02:2025",
+      "owasp_api_2023": "API8:2023",
+      "severity": "Media",
+      "description": "Configuraciones inseguras por defecto, modo depuración (debug=true) habilitado en producción, CORS permisivo (*) o ejecución como root.",
+      "recommendation": "Deshabilitar banners de depuración, restringir orígenes permitidos en CORS, ejecutar contenedores como usuarios no privilegiados y aplicar políticas mínimas."
+    },
+    {
+      "cwe": "CWE-918",
+      "name": "Server-Side Request Forgery (SSRF)",
+      "owasp_top10_2025": "A01:2025",
+      "owasp_api_2023": "API7:2023",
+      "severity": "Alta",
+      "description": "El servidor realiza peticiones HTTP salientes hacia URLs arbitrarias proporcionadas por el usuario sin validación o filtrado de red.",
+      "recommendation": "Implementar lista blanca de URLs o dominios permitidos y bloquear rangos privados (RFC 1918, localhost, metadata de cloud 169.254.169.254)."
+    },
+    {
+      "cwe": "CWE-770",
+      "name": "Allocation of Resources Without Limits or Throttling",
+      "owasp_top10_2025": "A06:2025",
+      "owasp_api_2023": "API4:2023",
+      "severity": "Media",
+      "description": "Endpoints públicos sin limitación de tasa de solicitudes (rate limiting) o paginación, expuestos a denegación de servicio por agotamiento de recursos.",
+      "recommendation": "Implementar rate limiting mediante API Gateways o middlewares (e.g. express-rate-limit, slowapi), limitar tamaño de payload y paginar consultas."
+    },
+    {
+      "cwe": "CWE-915",
+      "name": "Improperly Controlled Modification of Dynamically-Determined Object Attributes (Mass Assignment)",
+      "owasp_top10_2025": "A06:2025",
+      "owasp_api_2023": "API3:2023",
+      "severity": "Media",
+      "description": "Enlace automático de parámetros de entrada a modelos de dominio sin filtrado (permite sobreescribir roles, isAdmin, balances).",
+      "recommendation": "Utilizar Data Transfer Objects (DTOs) explícitos con listas blancas de propiedades permitidas en creación y actualización."
+    },
+    {
+      "cwe": "CWE-703",
+      "name": "Improper Check or Handling of Exceptional Conditions",
+      "owasp_top10_2025": "A10:2025",
+      "owasp_api_2023": "N/A",
+      "severity": "Baja",
+      "description": "Captura de excepciones genéricas con silenciamiento total (pass / empty catch) o fuga de stack traces completos al cliente.",
+      "recommendation": "Manejar excepciones específicas, registrar detalles completos en logs internos y responder al cliente con mensajes de error normalizados sin detalles técnicos."
+    },
+    {
+      "cwe": "CWE-778",
+      "name": "Insufficient Logging",
+      "owasp_top10_2025": "A09:2025",
+      "owasp_api_2023": "N/A",
+      "severity": "Baja",
+      "description": "Eventos críticos de seguridad como intentos fallidos de inicio de sesión o cambios de privilegios no generan trazas de auditoría.",
+      "recommendation": "Registrar eventos de autenticación, autorización y transacciones sensibles con metadatos contextuales (timestamp, user_id, ip)."
+    }
+  ]
+}

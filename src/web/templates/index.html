@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulnMiner Web Dashboard | Auditoría de Microservicios</title>
+    <!-- Bootstrap 5 CSS & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            --accent-color: #4a69bd;
+            --bg-light: #f4f6f9;
+        }
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #2f3640;
+        }
+        .navbar-brand-custom {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+        }
+        .header-banner {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 30px 0 20px 0;
+            border-bottom: 4px solid #f6b93b;
+            margin-bottom: 25px;
+        }
+        .nav-pills .nav-link {
+            color: #4b6584;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-right: 8px;
+            transition: all 0.2s ease;
+        }
+        .nav-pills .nav-link.active {
+            background: #1e3799;
+            color: white;
+            box-shadow: 0 4px 10px rgba(30, 55, 153, 0.3);
+        }
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #dcdde1;
+            padding: 20px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-3px);
+        }
+        .metric-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .metric-title {
+            font-size: 0.85rem;
+            color: #718093;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .finding-card {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #dcdde1;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .finding-header {
+            background: #f8f9fa;
+            padding: 12px 18px;
+            border-bottom: 1px solid #e1e2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badge-critica { background-color: #eb2f06; color: white; }
+        .badge-alta { background-color: #e55039; color: white; }
+        .badge-media { background-color: #fa983a; color: white; }
+        .badge-baja { background-color: #38ada9; color: white; }
+        .badge-owasp { background-color: #4a69bd; color: white; }
+        .badge-api { background-color: #079992; color: white; }
+        .badge-cwe { background-color: #6a89cc; color: white; }
+        .code-block {
+            background: #1e272e;
+            color: #d2dae2;
+            padding: 14px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.88rem;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        .service-pill {
+            background: #ffffff;
+            border: 1px solid #c8d6e5;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+        .figure-card {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #dcdde1;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .figure-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .figure-card img:hover {
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <div class="header-banner">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>
+                    <h1 class="navbar-brand-custom mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i>VulnMiner Web Interface</h1>
+                    <p class="mb-0 text-white-50">Minería de Datos para Clasificación de Vulnerabilidades en Arquitecturas de Microservicios</p>
+                    <small class="text-white-50">Universidad de las Fuerzas Armadas ESPE | Desarrollo de Software Seguro</small>
+                </div>
+                <div class="text-end mt-2 mt-md-0">
+                    <span class="badge bg-warning text-dark px-3 py-2"><i class="fa-solid fa-brain me-1"></i>SEMMA ML Engine</span>
+                    <span class="badge bg-success px-3 py-2 ms-1"><i class="fa-solid fa-lock me-1"></i>OWASP 2025 & API 2023</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container pb-5">
+        <!-- Navigation Pills -->
+        <ul class="nav nav-pills mb-4" id="mainTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="scanner-tab" data-bs-toggle="pill" data-bs-target="#tab-scanner" type="button">
+                    <i class="fa-solid fa-radar me-2"></i>1. Escáner de Microservicios
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="semma-tab" data-bs-toggle="pill" data-bs-target="#tab-semma" type="button">
+                    <i class="fa-solid fa-chart-line me-2"></i>2. Metodología SEMMA & Modelos ML
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="dataset-tab" data-bs-toggle="pill" data-bs-target="#tab-dataset" type="button">
+                    <i class="fa-solid fa-database me-2"></i>3. Explorador de Dataset & Mapeos
+                </button>
+            </li>
+        </ul>
+
+        <!-- TAB CONTENT -->
+        <div class="tab-content" id="mainTabContent">
+            
+            <!-- ==================== TAB 1: SCANNER ==================== -->
+            <div class="tab-pane fade show active" id="tab-scanner" role="tabpanel">
+                <!-- Scan Control Panel -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3"><i class="fa-solid fa-magnifying-glass-chart text-primary me-2"></i>Configuración de Auditoría y Escaneo</h5>
+                        <div class="row g-3 align-items-end">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">
+                                    <i class="fa-solid fa-folder-tree text-primary me-1"></i>Ruta del Proyecto / Microservicios
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="fa-regular fa-folder-open"></i></span>
+                                    <input type="text" id="targetPath" class="form-control" value="test_microservices" placeholder="ej: C:\ruta\proyecto o test_microservices">
+                                    <button class="btn btn-outline-primary" type="button" id="btnSelectFolder" onclick="chooseFolderNative()" title="Abrir selector de carpetas de Windows">
+                                        <i class="fa-solid fa-folder-plus me-1"></i>Examinar...
+                                    </button>
+                                    <button class="btn btn-outline-secondary" type="button" id="btnOpenExplorer" onclick="openInExplorer()" title="Abrir carpeta en el Explorador de Windows">
+                                        <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Abrir
+                                    </button>
+                                </div>
+                                <div class="form-text d-flex justify-content-between align-items-center mt-1">
+                                    <span>
+                                        Accesos rápidos: 
+                                        <a href="javascript:void(0)" class="fw-semibold text-decoration-none" onclick="setPath('test_microservices')">test_microservices</a> | 
+                                        <a href="javascript:void(0)" class="fw-semibold text-decoration-none" onclick="setPath('.')">Directorio Raíz (.)</a>
+                                    </span>
+                                    <span id="folderStatusText" class="text-success small fw-semibold"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-semibold">Estándares de Seguridad</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="chkOwasp" checked>
+                                        <label class="form-check-label" for="chkOwasp">OWASP Top 10:2025</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="chkApi" checked>
+                                        <label class="form-check-label" for="chkApi">OWASP API:2023</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-end">
+                                <button class="btn btn-primary btn-lg w-100 fw-bold shadow-sm" id="btnRunScan" onclick="triggerScan()">
+                                    <i class="fa-solid fa-play me-2"></i>Iniciar Escaneo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div id="scanLoading" class="text-center py-5 d-none">
+                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+                    <h5 class="mt-3 fw-bold">Descubriendo microservicios y clasificando con modelo ML...</h5>
+                    <p class="text-muted">Extrayendo vectores sintácticos y aplicando modelo supervisado (SVM Calibrado)...</p>
+                </div>
+
+                <!-- Scan Results Container -->
+                <div id="scanResultsContainer">
+                    <!-- Metrics Row -->
+                    <div class="row g-3 mb-4" id="metricsRow">
+                        <div class="col-6 col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-number text-primary" id="metricServices">-</div>
+                                <div class="metric-title">Microservicios</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-number text-info" id="metricFiles">-</div>
+                                <div class="metric-title">Archivos Analizados</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-number text-danger" id="metricFindings">-</div>
+                                <div class="metric-title">Hallazgos Potenciales</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-number text-warning" id="metricCritical">-</div>
+                                <div class="metric-title">Críticos / Altos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Microservices Structure Discovered -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-white py-3">
+                            <h6 class="fw-bold mb-0"><i class="fa-solid fa-network-wired text-secondary me-2"></i>Arquitectura de Microservicios Detectada</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3" id="servicesGrid">
+                                <div class="text-muted">Haga clic en 'Iniciar Escaneo' para descubrir la estructura de servicios.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Findings Section -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <h6 class="fw-bold mb-0"><i class="fa-solid fa-triangle-exclamation text-warning me-2"></i>Vulnerabilidades y Hallazgos Clasificados</h6>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a id="btnViewHtml" href="/reports/analisis.html" target="_blank" class="btn btn-sm btn-outline-primary d-none">
+                                    <i class="fa-solid fa-file-lines me-1"></i>Ver Reporte HTML
+                                </a>
+                                <a id="btnDownloadJson" href="/reports/analisis.json" target="_blank" class="btn btn-sm btn-outline-secondary d-none">
+                                    <i class="fa-solid fa-download me-1"></i>Descargar JSON
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Filters -->
+                            <div class="row g-2 mb-3">
+                                <div class="col-md-5">
+                                    <input type="text" id="findingSearch" class="form-control form-control-sm" placeholder="Buscar por archivo, problema o CWE..." oninput="filterFindings()">
+                                </div>
+                                <div class="col-md-4">
+                                    <select id="severityFilter" class="form-select form-select-sm" onchange="filterFindings()">
+                                        <option value="ALL">Todas las Severidades</option>
+                                        <option value="Crítica">Crítica</option>
+                                        <option value="Alta">Alta</option>
+                                        <option value="Media">Media</option>
+                                        <option value="Baja">Baja</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select id="serviceFilter" class="form-select form-select-sm" onchange="filterFindings()">
+                                        <option value="ALL">Todos los Microservicios</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- List of Findings -->
+                            <div id="findingsList">
+                                <p class="text-muted text-center py-4">Inicie un escaneo para visualizar las vulnerabilidades clasificadas por el modelo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== TAB 2: SEMMA ==================== -->
+            <div class="tab-pane fade" id="tab-semma" role="tabpanel">
+                <!-- SEMMA Phases Stepper -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-3"><i class="fa-solid fa-cubes-stacked text-primary me-2"></i>Metodología SEMMA Aplicada</h4>
+                        <div class="row g-3 text-center">
+                            <div class="col">
+                                <div class="p-3 bg-light rounded border">
+                                    <h6 class="fw-bold text-primary mb-1">1. SAMPLE</h6>
+                                    <small class="text-muted">529 registros etiquetados, 144 seguros. Partición 70/15/15 estratificada.</small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 bg-light rounded border">
+                                    <h6 class="fw-bold text-success mb-1">2. EXPLORE</h6>
+                                    <small class="text-muted">Estadísticas descriptivas, conteo por lenguajes y desbalance de clases.</small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 bg-light rounded border">
+                                    <h6 class="fw-bold text-warning mb-1">3. MODIFY</h6>
+                                    <small class="text-muted">FeatureUnion: TF-IDF (2500) + Rasgos sintácticos de seguridad (16).</small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 bg-light rounded border">
+                                    <h6 class="fw-bold text-danger mb-1">4. MODEL</h6>
+                                    <small class="text-muted">Comparación: Random Forest, Linear SVM y Regresión Logística (Sin LLMs).</small>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 bg-light rounded border">
+                                    <h6 class="fw-bold text-info mb-1">5. ASSESS</h6>
+                                    <small class="text-muted">Evaluación ciega sobre 80 registros. F1 Macro: 1.000, 0 Falsos Positivos.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Algorithm Comparison Table -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="fw-bold mb-0"><i class="fa-solid fa-scale-balanced text-primary me-2"></i>Comparativa Experimental de Algoritmos Supervisados</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="modelsTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Algoritmo</th>
+                                        <th>Tiempo de Entrenamiento</th>
+                                        <th>Accuracy Validación</th>
+                                        <th>Macro F1-Score</th>
+                                        <th>Weighted F1-Score</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modelsTableBody">
+                                    <tr><td colspan="6" class="text-center text-muted">Cargando métricas de modelos...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-info mt-3 mb-0">
+                            <strong><i class="fa-solid fa-circle-info me-2"></i>Criterio de Selección:</strong> Se seleccionó <strong>Support Vector Machine (Linear SVC Calibrado)</strong> como modelo campeón al alcanzar el máximo <em>Macro F1-Score</em> (1.0000), garantizando que las clases minoritarias cuenten con la misma capacidad de detección que las clases mayoritarias.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Figures Gallery -->
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-image text-primary me-2"></i>Visualizaciones y Gráficos Generados</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Matriz de Confusión (Conjunto de Prueba Ciego)</h6>
+                            <img src="/figures/confusion_matrix.png" alt="Matriz de Confusión">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Distribución OWASP Top 10:2025</h6>
+                            <img src="/figures/owasp_distribution.png" alt="OWASP Top 10">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Distribución OWASP API Security Top 10:2023</h6>
+                            <img src="/figures/owasp_api_distribution.png" alt="OWASP API">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Distribución por Lenguaje de Programación</h6>
+                            <img src="/figures/language_distribution.png" alt="Lenguajes">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Proporción de Código Seguro vs Vulnerable</h6>
+                            <img src="/figures/vulnerable_vs_safe.png" alt="Seguro vs Vulnerable">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="figure-card">
+                            <h6 class="fw-bold">Frecuencia de Todas las Clases (Desbalance)</h6>
+                            <img src="/figures/class_imbalance.png" alt="Desbalance">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== TAB 3: DATASET & MAPPINGS ==================== -->
+            <div class="tab-pane fade" id="tab-dataset" role="tabpanel">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0"><i class="fa-solid fa-table-list text-primary me-2"></i>Explorador del Dataset Etiquetado</h5>
+                        <div id="datasetCountBadge" class="badge bg-secondary">Total: 529 registros</div>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filters for dataset -->
+                        <div class="row g-2 mb-3">
+                            <div class="col-md-4">
+                                <select id="dsLangFilter" class="form-select form-select-sm" onchange="loadDataset()">
+                                    <option value="">Todos los Lenguajes</option>
+                                    <option value="python">Python</option>
+                                    <option value="java">Java</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="typescript">TypeScript</option>
+                                    <option value="yaml">YAML</option>
+                                    <option value="dockerfile">Dockerfile</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select id="dsVulnFilter" class="form-select form-select-sm" onchange="loadDataset()">
+                                    <option value="">Todos los Estados</option>
+                                    <option value="1">Vulnerable (1)</option>
+                                    <option value="0">Seguro (0)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-sm btn-outline-primary w-100" onclick="loadDataset()">
+                                    <i class="fa-solid fa-arrows-rotate me-1"></i>Actualizar Vista
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Lenguaje</th>
+                                        <th>Categoría</th>
+                                        <th>CWE</th>
+                                        <th>OWASP 2025</th>
+                                        <th>OWASP API</th>
+                                        <th>Estado</th>
+                                        <th>Código</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="datasetTableBody">
+                                    <tr><td colspan="8" class="text-center text-muted">Cargando registros...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CWE to OWASP Mapping Reference Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-white py-3">
+                        <h5 class="fw-bold mb-0"><i class="fa-solid fa-link text-primary me-2"></i>Matriz de Correspondencias CWE – OWASP Top 10 & API</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" id="mappingTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>CWE</th>
+                                        <th>Nombre Técnico</th>
+                                        <th>OWASP Top 10:2025</th>
+                                        <th>OWASP API:2023</th>
+                                        <th>Severidad</th>
+                                        <th>Recomendación de Mitigación</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mappingTableBody">
+                                    <tr><td colspan="6" class="text-center text-muted">Cargando mapeos...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let currentFindings = [];
+
+        function setPath(path) {
+            document.getElementById('targetPath').value = path;
+            const status = document.getElementById('folderStatusText');
+            status.innerText = `Ruta establecida: ${path}`;
+            setTimeout(() => { status.innerText = ''; }, 3000);
+        }
+
+        async function chooseFolderNative() {
+            const btn = document.getElementById('btnSelectFolder');
+            const status = document.getElementById('folderStatusText');
+            btn.disabled = true;
+            status.innerText = 'Abriendo selector de Windows...';
+
+            try {
+                const res = await fetch('/api/select-folder', { method: 'POST' });
+                const data = await res.json();
+                if (data.status === 'selected' && data.path) {
+                    document.getElementById('targetPath').value = data.path;
+                    status.innerText = `✓ Carpeta seleccionada: ${data.path}`;
+                } else if (data.status === 'cancelled') {
+                    status.innerText = 'Selección cancelada';
+                }
+            } catch (err) {
+                status.innerText = 'Error al abrir selector';
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                setTimeout(() => { status.innerText = ''; }, 4000);
+            }
+        }
+
+        async function openInExplorer() {
+            const path = document.getElementById('targetPath').value.trim();
+            const btn = document.getElementById('btnOpenExplorer');
+            const status = document.getElementById('folderStatusText');
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/open-folder', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: path })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    status.innerText = `✓ Carpeta abierta en Windows Explorer`;
+                } else {
+                    alert('Error: ' + (data.error || 'No se pudo abrir la carpeta'));
+                }
+            } catch (err) {
+                alert('Fallo de conexión al abrir carpeta: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                setTimeout(() => { status.innerText = ''; }, 3500);
+            }
+        }
+
+        async function triggerScan() {
+            const path = document.getElementById('targetPath').value.trim();
+            const chkOwasp = document.getElementById('chkOwasp').checked;
+            const chkApi = document.getElementById('chkApi').checked;
+
+            let standards = [];
+            if (chkOwasp) standards.push('owasp2025');
+            if (chkApi) standards.push('api2023');
+
+            document.getElementById('scanLoading').classList.remove('d-none');
+            document.getElementById('btnRunScan').disabled = true;
+
+            try {
+                const response = await fetch('/api/scan', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: path, standards: standards.join(',') })
+                });
+
+                const data = await response.json();
+                if (!response.ok) {
+                    alert('Error: ' + (data.error || 'Error desconocido al escanear'));
+                    return;
+                }
+
+                renderScanResults(data);
+            } catch (err) {
+                alert('Fallo de conexión con el servidor: ' + err.message);
+            } finally {
+                document.getElementById('scanLoading').classList.add('d-none');
+                document.getElementById('btnRunScan').disabled = false;
+            }
+        }
+
+        function renderScanResults(data) {
+            document.getElementById('metricServices').innerText = data.microservices_count;
+            document.getElementById('metricFiles').innerText = data.files_analyzed_count;
+            document.getElementById('metricFindings').innerText = data.findings_count;
+
+            const criticalOrHigh = data.findings.filter(f => f.severity === 'Crítica' || f.severity === 'Alta').length;
+            document.getElementById('metricCritical').innerText = criticalOrHigh;
+
+            // Render Services
+            const servicesGrid = document.getElementById('servicesGrid');
+            servicesGrid.innerHTML = '';
+            const serviceFilter = document.getElementById('serviceFilter');
+            serviceFilter.innerHTML = '<option value="ALL">Todos los Microservicios</option>';
+
+            for (const [sName, sInfo] of Object.entries(data.microservices)) {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-3';
+                col.innerHTML = `
+                    <div class="service-pill">
+                        <div class="fw-bold text-primary mb-1"><i class="fa-solid fa-server me-1"></i>${sName}</div>
+                        <div class="small text-muted mb-2">${sInfo.technologies.join(', ')}</div>
+                        <span class="badge bg-light text-dark border">${sInfo.files.length} archivos</span>
+                    </div>
+                `;
+                servicesGrid.appendChild(col);
+
+                const opt = document.createElement('option');
+                opt.value = sName;
+                opt.innerText = sName;
+                serviceFilter.appendChild(opt);
+            }
+
+            // Buttons
+            document.getElementById('btnViewHtml').classList.remove('d-none');
+            document.getElementById('btnDownloadJson').classList.remove('d-none');
+
+            currentFindings = data.findings;
+            filterFindings();
+        }
+
+        function filterFindings() {
+            const query = document.getElementById('findingSearch').value.toLowerCase();
+            const sev = document.getElementById('severityFilter').value;
+            const srv = document.getElementById('serviceFilter').value;
+
+            const list = document.getElementById('findingsList');
+            list.innerHTML = '';
+
+            const filtered = currentFindings.filter(f => {
+                const matchesQuery = f.file.toLowerCase().includes(query) ||
+                                     f.problem.toLowerCase().includes(query) ||
+                                     f.cwe.toLowerCase().includes(query) ||
+                                     f.owasp_top10.toLowerCase().includes(query);
+                const matchesSev = (sev === 'ALL' || f.severity === sev);
+                const matchesSrv = (srv === 'ALL' || f.service === srv);
+                return matchesQuery && matchesSev && matchesSrv;
+            });
+
+            if (filtered.length === 0) {
+                list.innerHTML = '<p class="text-muted text-center py-4">No se encontraron hallazgos que coincidan con los filtros seleccionados.</p>';
+                return;
+            }
+
+            filtered.forEach((f, idx) => {
+                let badgeClass = 'badge-media';
+                if (f.severity === 'Crítica') badgeClass = 'badge-critica';
+                else if (f.severity === 'Alta') badgeClass = 'badge-alta';
+                else if (f.severity === 'Baja') badgeClass = 'badge-baja';
+
+                const card = document.createElement('div');
+                card.className = 'finding-card';
+                card.innerHTML = `
+                    <div class="finding-header">
+                        <div>
+                            <span class="fw-bold me-2">${f.id}</span>
+                            <span class="badge ${badgeClass} me-1">${f.severity}</span>
+                            <span class="badge badge-owasp me-1">${f.owasp_top10}</span>
+                            <span class="badge badge-api me-1">${f.owasp_api}</span>
+                            <span class="badge badge-cwe">${f.cwe}</span>
+                        </div>
+                        <div>
+                            <span class="small fw-bold text-muted">Confianza Modelo: </span>
+                            <span class="badge bg-dark">${(f.confidence * 100).toFixed(1)}%</span>
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="mb-1"><strong>Servicio:</strong> <code>${f.service}</code> | <strong>Archivo:</strong> <code>${f.file}</code> (Línea: ${f.line})</p>
+                        <p class="mb-1"><strong>Problema:</strong> ${f.problem}</p>
+                        <p class="mb-2 text-success"><strong><i class="fa-solid fa-wrench me-1"></i>Recomendación:</strong> ${f.recommendation}</p>
+                        <details>
+                            <summary class="text-primary fw-bold" style="cursor: pointer;">Ver Evidencia Técnica de Código</summary>
+                            <pre class="code-block"><code>${escapeHtml(f.evidence)}</code></pre>
+                        </details>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Load SEMMA metrics
+        async function loadSemmaMetrics() {
+            try {
+                const res = await fetch('/api/semma-metrics');
+                const data = await res.json();
+
+                const meta = data.metadata;
+                const tbody = document.getElementById('modelsTableBody');
+                tbody.innerHTML = '';
+
+                if (meta.comparison_results) {
+                    meta.comparison_results.forEach(m => {
+                        const isChamp = m.model_name === meta.champion_model;
+                        const tr = document.createElement('tr');
+                        tr.className = isChamp ? 'table-success fw-bold' : '';
+                        tr.innerHTML = `
+                            <td>${isChamp ? '<i class="fa-solid fa-trophy text-warning me-2"></i>' : ''}${m.model_name}</td>
+                            <td>${m.train_time_sec} s</td>
+                            <td>${(m.val_accuracy * 100).toFixed(2)}%</td>
+                            <td>${m.val_macro_f1.toFixed(4)}</td>
+                            <td>${m.val_weighted_f1.toFixed(4)}</td>
+                            <td>${isChamp ? '<span class="badge bg-success">Modelo Campeón</span>' : '<span class="badge bg-secondary">Evaluado</span>'}</td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // Load Dataset
+        async function loadDataset() {
+            const lang = document.getElementById('dsLangFilter').value;
+            const vuln = document.getElementById('dsVulnFilter').value;
+
+            try {
+                const url = `/api/dataset?language=${lang}&is_vulnerable=${vuln}&limit=50`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+                document.getElementById('datasetCountBadge').innerText = `Total Filtrado: ${data.total} registros`;
+
+                const tbody = document.getElementById('datasetTableBody');
+                tbody.innerHTML = '';
+
+                data.records.forEach(r => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><code>${r.id}</code></td>
+                        <td><span class="badge bg-light text-dark border">${r.language}</span></td>
+                        <td>${r.category}</td>
+                        <td><span class="badge bg-secondary">${r.cwe}</span></td>
+                        <td>${r.owasp_top10}</td>
+                        <td>${r.owasp_api}</td>
+                        <td>${r.is_vulnerable === 1 ? '<span class="badge bg-danger">Vulnerable</span>' : '<span class="badge bg-success">Seguro</span>'}</td>
+                        <td><small><code>${escapeHtml(r.code_snippet.substring(0, 50))}...</code></small></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // Load Mappings
+        async function loadMappings() {
+            try {
+                const res = await fetch('/api/mappings');
+                const data = await res.json();
+                const tbody = document.getElementById('mappingTableBody');
+                tbody.innerHTML = '';
+
+                data.mappings.forEach(m => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${m.cwe}</strong></td>
+                        <td>${m.name}</td>
+                        <td><span class="badge badge-owasp">${m.owasp_top10_2025}</span></td>
+                        <td><span class="badge badge-api">${m.owasp_api_2023}</span></td>
+                        <td><span class="badge bg-secondary">${m.severity}</span></td>
+                        <td><small>${m.recommendation}</small></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // Auto load on start
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSemmaMetrics();
+            loadDataset();
+            loadMappings();
+            // Trigger automatic default scan on test_microservices
+            triggerScan();
+        });
+    </script>
+</body>
+</html>

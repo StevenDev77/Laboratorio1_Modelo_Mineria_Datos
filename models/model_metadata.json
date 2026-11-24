@@ -1,0 +1,44 @@
+{
+  "champion_model": "Support_Vector_Machine",
+  "selection_metric": "val_macro_f1",
+  "comparison_results": [
+    {
+      "model_name": "Random_Forest",
+      "train_time_sec": 0.1667,
+      "val_accuracy": 0.9747,
+      "val_macro_f1": 0.9832,
+      "val_weighted_f1": 0.9751
+    },
+    {
+      "model_name": "Support_Vector_Machine",
+      "train_time_sec": 0.4262,
+      "val_accuracy": 1.0,
+      "val_macro_f1": 1.0,
+      "val_weighted_f1": 1.0
+    },
+    {
+      "model_name": "Logistic_Regression",
+      "train_time_sec": 0.1239,
+      "val_accuracy": 0.9873,
+      "val_macro_f1": 0.9922,
+      "val_weighted_f1": 0.9877
+    }
+  ],
+  "total_classes": 13,
+  "classes": [
+    "BOLA_IDOR",
+    "BROKEN_AUTHENTICATION",
+    "COMMAND_INJECTION",
+    "EXCEPTIONAL_HANDLING",
+    "HARDCODED_SECRET",
+    "MASS_ASSIGNMENT",
+    "MISSING_FUNCTION_AUTH",
+    "RATE_LIMIT_ABSENCE",
+    "SAFE_CODE",
+    "SECURITY_MISCONFIG",
+    "SQL_INJECTION",
+    "SSRF",
+    "WEAK_CRYPTO_HASH"
+  ],
+  "timestamp": "2026-11-23 23:34:27"
+}

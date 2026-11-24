@@ -1,0 +1,21 @@
+{
+  "project_name": "ms-users-nestjs-main",
+  "root_path": "C:\\Users\\LENOVO\\Documents\\ms-users-nestjs-main",
+  "microservices_count": 1,
+  "microservices": {
+    "ms-users-nestjs-main": {
+      "path": "C:\\Users\\LENOVO\\Documents\\ms-users-nestjs-main",
+      "technologies": [
+        "Generic Microservice / Monorepo"
+      ],
+      "files": []
+    }
+  },
+  "files_analyzed_count": 0,
+  "findings_count": 0,
+  "findings": [],
+  "reports_generated": [
+    "reportes/analisis.json",
+    "reportes/analisis.html"
+  ]
+}

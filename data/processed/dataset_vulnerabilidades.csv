@@ -1,0 +1,1933 @@
+id,language,source,code_snippet,is_vulnerable,category,cwe,owasp_top10,owasp_api,severity
+VULN_0001,python,NIST_SARD,"cursor.execute(f""SELECT * FROM users_v0 WHERE username = '{user}' AND password = '{pwd}'"")",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0002,python,NIST_SARD,"cursor.execute(f""SELECT * FROM users_v1 WHERE username = '{user}' AND password = '{pwd}'"")",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0003,python,NIST_SARD,"cursor.execute(f""SELECT * FROM users_v2 WHERE username = '{user}' AND password = '{pwd}'"")",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0004,python,NIST_SARD,"query = 'SELECT id, email, role FROM accounts WHERE email = \'' + email + '\''
+results = db.session.execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0005,python,NIST_SARD,"query = 'SELECT id, email, role FROM accounts WHERE email = \'' + email + '\''
+results = db.session.execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0006,python,NIST_SARD,"query = 'SELECT id, email, role FROM accounts WHERE email = \'' + email + '\''
+results = db.session.execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0007,python,NIST_SARD,"sql = 'DELETE FROM orders_v0 WHERE order_id = %s' % order_id
+cursor.execute(sql)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0008,python,NIST_SARD,"sql = 'DELETE FROM orders_v1 WHERE order_id = %s' % order_id
+cursor.execute(sql)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0009,python,NIST_SARD,"sql = 'DELETE FROM orders_v2 WHERE order_id = %s' % order_id
+cursor.execute(sql)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0010,python,NIST_SARD,"query = f'UPDATE profiles SET bio = ""{bio}"" WHERE user_id = {uid}'
+connection.cursor().execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0011,python,NIST_SARD,"query = f'UPDATE profiles SET bio = ""{bio}"" WHERE user_id = {uid}'
+connection.cursor().execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0012,python,NIST_SARD,"query = f'UPDATE profiles SET bio = ""{bio}"" WHERE user_id = {uid}'
+connection.cursor().execute(query)",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0013,python,NIST_SARD,db.engine.execute('SELECT * FROM payments WHERE transaction_id = ' + req.params.get('txn')),1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0014,python,NIST_SARD,db.engine.execute('SELECT * FROM payments WHERE transaction_id = ' + req.params.get('txn')),1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0015,python,NIST_SARD,db.engine.execute('SELECT * FROM payments WHERE transaction_id = ' + req.params.get('txn')),1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0016,javascript,NIST_SARD,"const query = `SELECT * FROM users_v0 WHERE email = '${req.body.email}'`;
+const result = await db.query(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0017,javascript,NIST_SARD,"const query = `SELECT * FROM users_v1 WHERE email = '${req.body.email}'`;
+const result = await db.query(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0018,javascript,NIST_SARD,"const query = `SELECT * FROM users_v2 WHERE email = '${req.body.email}'`;
+const result = await db.query(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0019,javascript,NIST_SARD,"const sql = 'SELECT * FROM catalog_v0 WHERE category = \'' + category + '\'';
+connection.query(sql, (err, rows) => {});",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0020,javascript,NIST_SARD,"const sql = 'SELECT * FROM catalog_v1 WHERE category = \'' + category + '\'';
+connection.query(sql, (err, rows) => {});",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0021,javascript,NIST_SARD,"const sql = 'SELECT * FROM catalog_v2 WHERE category = \'' + category + '\'';
+connection.query(sql, (err, rows) => {});",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0022,typescript,NIST_SARD,"const sqlQuery = `SELECT id, balance FROM accounts WHERE user_id = ${id}`;
+return await this.dataSource.query(sqlQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0023,typescript,NIST_SARD,"const sqlQuery = `SELECT id, balance FROM accounts WHERE user_id = ${id}`;
+return await this.dataSource.query(sqlQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0024,typescript,NIST_SARD,"const sqlQuery = `SELECT id, balance FROM accounts WHERE user_id = ${id}`;
+return await this.dataSource.query(sqlQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0025,typescript,NIST_SARD,"const rawQuery = 'SELECT * FROM audit_logs WHERE action = \'' + filter + '\'';
+return this.repo.query(rawQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0026,typescript,NIST_SARD,"const rawQuery = 'SELECT * FROM audit_logs WHERE action = \'' + filter + '\'';
+return this.repo.query(rawQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0027,typescript,NIST_SARD,"const rawQuery = 'SELECT * FROM audit_logs WHERE action = \'' + filter + '\'';
+return this.repo.query(rawQuery);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0028,java,OWASP_Benchmark,"String query = ""SELECT * FROM users_v0 WHERE username = '"" + username + ""' AND password = '"" + pwd + ""'"";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0029,java,OWASP_Benchmark,"String query = ""SELECT * FROM users_v1 WHERE username = '"" + username + ""' AND password = '"" + pwd + ""'"";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0030,java,OWASP_Benchmark,"String query = ""SELECT * FROM users_v2 WHERE username = '"" + username + ""' AND password = '"" + pwd + ""'"";
+Statement stmt = conn.createStatement();
+ResultSet rs = stmt.executeQuery(query);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0031,java,OWASP_Benchmark,"String sql = ""DELETE FROM items WHERE item_code = '"" + code + ""'"";
+entityManager.createNativeQuery(sql).executeUpdate();",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0032,java,OWASP_Benchmark,"String sql = ""DELETE FROM items WHERE item_code = '"" + code + ""'"";
+entityManager.createNativeQuery(sql).executeUpdate();",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0033,java,OWASP_Benchmark,"String sql = ""DELETE FROM items WHERE item_code = '"" + code + ""'"";
+entityManager.createNativeQuery(sql).executeUpdate();",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0034,java,OWASP_Benchmark,"String sql = String.format(""SELECT * FROM invoices WHERE client_id = '%s'"", clientId);
+return jdbcTemplate.queryForList(sql);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0035,java,OWASP_Benchmark,"String sql = String.format(""SELECT * FROM invoices WHERE client_id = '%s'"", clientId);
+return jdbcTemplate.queryForList(sql);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0036,java,OWASP_Benchmark,"String sql = String.format(""SELECT * FROM invoices WHERE client_id = '%s'"", clientId);
+return jdbcTemplate.queryForList(sql);",1,SQL_INJECTION,CWE-89,A05:2025,NONE,Alta
+VULN_0037,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0038,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0039,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0040,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0041,python,NIST_SARD,"import os
+def nslookup_host(host):
+    cmd = 'nslookup -c 1 ' + host
+    return os.system(cmd)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0042,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_0.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0043,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_1.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0044,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_2.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0045,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_3.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0046,python,NIST_SARD,"import subprocess
+def convert_image(filename):
+    subprocess.call('convert ' + filename + ' res_4.png', shell=True)",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0047,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0048,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0049,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0050,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0051,python,NIST_SARD,"import os
+def backup_data(target_dir):
+    os.popen(f'tar -czf backup.tar.gz {target_dir}')",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0052,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_0.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0053,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_1.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0054,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_2.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0055,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_3.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0056,javascript,NIST_SARD,"const { exec } = require('child_process');
+app.post('/compress', (req, res) => {
+  exec('zip -r backup_4.zip ' + req.body.path);
+});",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0057,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0058,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0059,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0060,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0061,typescript,NIST_SARD,"import { execSync } from 'child_process';
+export function runScript(cmdParam: string) {
+  return execSync(`bash ./scripts/run.sh ${cmdParam}`).toString();
+}",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0062,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0063,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0064,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0065,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0066,java,NIST_SARD,"Runtime rt = Runtime.getRuntime();
+Process proc = rt.exec(""sh -c nslookup "" + targetIp);",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0067,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0068,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0069,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0070,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0071,java,NIST_SARD,"ProcessBuilder pb = new ProcessBuilder(""cmd.exe"", ""/c"", ""dir "" + folderPath);
+Process p = pb.start();",1,COMMAND_INJECTION,CWE-78,A05:2025,NONE,Crítica
+VULN_0072,python,RealWorld_Microservices,"@app.get('/api/receipts_0/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0073,python,RealWorld_Microservices,"@app.get('/api/receipts_1/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0074,python,RealWorld_Microservices,"@app.get('/api/receipts_2/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0075,python,RealWorld_Microservices,"@app.get('/api/receipts_3/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0076,python,RealWorld_Microservices,"@app.get('/api/receipts_4/{order_id}')
+def get_order(order_id: int):
+    return db.query(Order).filter(Order.id == order_id).first()",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0077,python,RealWorld_Microservices,"@router.put('/api/users/{user_id}/profile')
+def update_profile(user_id: int, data: ProfileUpdate):
+    profile = db.query(Profile).filter(Profile.user_id == user_id).first()
+    profile.update(data.dict())
+    return profile",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0078,python,RealWorld_Microservices,"@router.put('/api/users/{user_id}/profile')
+def update_profile(user_id: int, data: ProfileUpdate):
+    profile = db.query(Profile).filter(Profile.user_id == user_id).first()
+    profile.update(data.dict())
+    return profile",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0079,python,RealWorld_Microservices,"@router.put('/api/users/{user_id}/profile')
+def update_profile(user_id: int, data: ProfileUpdate):
+    profile = db.query(Profile).filter(Profile.user_id == user_id).first()
+    profile.update(data.dict())
+    return profile",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0080,python,RealWorld_Microservices,"@router.put('/api/users/{user_id}/profile')
+def update_profile(user_id: int, data: ProfileUpdate):
+    profile = db.query(Profile).filter(Profile.user_id == user_id).first()
+    profile.update(data.dict())
+    return profile",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0081,python,RealWorld_Microservices,"@router.put('/api/users/{user_id}/profile')
+def update_profile(user_id: int, data: ProfileUpdate):
+    profile = db.query(Profile).filter(Profile.user_id == user_id).first()
+    profile.update(data.dict())
+    return profile",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0082,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0083,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0084,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0085,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0086,python,RealWorld_Microservices,"def fetch_invoice(invoice_id):
+    # No check if invoice belongs to current_user
+    return Invoice.objects.get(id=invoice_id)",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0087,javascript,RealWorld_Microservices,"app.get('/api/records_0/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0088,javascript,RealWorld_Microservices,"app.get('/api/records_1/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0089,javascript,RealWorld_Microservices,"app.get('/api/records_2/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0090,javascript,RealWorld_Microservices,"app.get('/api/records_3/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0091,javascript,RealWorld_Microservices,"app.get('/api/records_4/:id', async (req, res) => {
+  const doc = await Document.findById(req.params.id);
+  res.json(doc);
+});",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0092,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0093,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0094,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0095,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0096,typescript,RealWorld_Microservices,"@Get(':id')
+async findOne(@Param('id') id: string) {
+  // Fetches resource directly by id without checking ownership or tenant
+  return this.accountService.getAccountById(id);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0097,typescript,RealWorld_Microservices,"@Delete('/api/messages/:msgId')
+async deleteMsg(@Param('msgId') msgId: string) {
+  return this.chatService.remove(msgId);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0098,typescript,RealWorld_Microservices,"@Delete('/api/messages/:msgId')
+async deleteMsg(@Param('msgId') msgId: string) {
+  return this.chatService.remove(msgId);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0099,typescript,RealWorld_Microservices,"@Delete('/api/messages/:msgId')
+async deleteMsg(@Param('msgId') msgId: string) {
+  return this.chatService.remove(msgId);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0100,typescript,RealWorld_Microservices,"@Delete('/api/messages/:msgId')
+async deleteMsg(@Param('msgId') msgId: string) {
+  return this.chatService.remove(msgId);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0101,typescript,RealWorld_Microservices,"@Delete('/api/messages/:msgId')
+async deleteMsg(@Param('msgId') msgId: string) {
+  return this.chatService.remove(msgId);
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0102,java,RealWorld_Microservices,"@GetMapping(""/api/leases_0/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0103,java,RealWorld_Microservices,"@GetMapping(""/api/leases_1/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0104,java,RealWorld_Microservices,"@GetMapping(""/api/leases_2/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0105,java,RealWorld_Microservices,"@GetMapping(""/api/leases_3/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0106,java,RealWorld_Microservices,"@GetMapping(""/api/leases_4/{id}"")
+public ContractDTO getContract(@PathVariable(""id"") Long id) {
+    return contractRepository.findById(id).orElseThrow();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0107,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0108,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0109,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0110,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0111,java,RealWorld_Microservices,"@PutMapping(""/api/accounts/{accountId}/transfer"")
+public ResponseEntity<?> transferMoney(@PathVariable Long accountId, @RequestBody TransferRequest req) {
+    accountService.execute(accountId, req.getAmount());
+    return ResponseEntity.ok().build();
+}",1,BOLA_IDOR,CWE-639,A01:2025,API1:2023,Alta
+VULN_0112,python,RealWorld_Microservices,"@app.delete('/api/ops_admin_0/agents_0/{user_id}')
+def delete_user_ops_admin_0(user_id: int):
+    # Missing @require_role('ADMIN') decorator
+    db.query(User).filter(User.id == user_id).delete()
+    return {'status': 'deleted'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0113,python,RealWorld_Microservices,"@app.delete('/api/ops_admin_1/agents_1/{user_id}')
+def delete_user_ops_admin_1(user_id: int):
+    # Missing @require_role('ADMIN') decorator
+    db.query(User).filter(User.id == user_id).delete()
+    return {'status': 'deleted'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0114,python,RealWorld_Microservices,"@app.delete('/api/ops_admin_2/agents_2/{user_id}')
+def delete_user_ops_admin_2(user_id: int):
+    # Missing @require_role('ADMIN') decorator
+    db.query(User).filter(User.id == user_id).delete()
+    return {'status': 'deleted'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0115,python,RealWorld_Microservices,"@app.delete('/api/ops_admin_3/agents_3/{user_id}')
+def delete_user_ops_admin_3(user_id: int):
+    # Missing @require_role('ADMIN') decorator
+    db.query(User).filter(User.id == user_id).delete()
+    return {'status': 'deleted'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0116,python,RealWorld_Microservices,"@app.delete('/api/ops_admin_4/agents_4/{user_id}')
+def delete_user_ops_admin_4(user_id: int):
+    # Missing @require_role('ADMIN') decorator
+    db.query(User).filter(User.id == user_id).delete()
+    return {'status': 'deleted'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0117,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0118,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0119,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0120,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0121,python,RealWorld_Microservices,"@app.post('/api/system/reset-cache')
+def reset_cache():
+    cache.flush_all()
+    return {'message': 'Cache reset'}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0122,javascript,RealWorld_Microservices,"router.post('/ops_admin_0/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_0' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0123,javascript,RealWorld_Microservices,"router.post('/ops_admin_1/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_1' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0124,javascript,RealWorld_Microservices,"router.post('/ops_admin_2/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_2' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0125,javascript,RealWorld_Microservices,"router.post('/ops_admin_3/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_3' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0126,javascript,RealWorld_Microservices,"router.post('/ops_admin_4/promote-user', (req, res) => {
+  // No role check middleware
+  User.updateOne({ _id: req.body.userId }, { role: 'ops_admin_4' });
+  res.send('Promoted');
+});",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0127,typescript,RealWorld_Microservices,"@Post('/ops_admin_0/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0128,typescript,RealWorld_Microservices,"@Post('/ops_admin_1/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0129,typescript,RealWorld_Microservices,"@Post('/ops_admin_2/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0130,typescript,RealWorld_Microservices,"@Post('/ops_admin_3/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0131,typescript,RealWorld_Microservices,"@Post('/ops_admin_4/system-config')
+async updateSystemConfig(@Body() config: ConfigDto) {
+  // Controller not protected by RolesGuard
+  return this.configService.save(config);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0132,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0133,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0134,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0135,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0136,java,RealWorld_Microservices,"@PostMapping(""/api/v1/management/export-all-data"")
+public byte[] exportAllData() {
+    // Missing @PreAuthorize(""hasRole('ADMIN')"")
+    return backupService.exportFullDatabase();
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0137,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0138,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0139,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0140,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0141,java,RealWorld_Microservices,"@DeleteMapping(""/api/internal/tenants/{tenantId}"")
+public void purgeTenant(@PathVariable String tenantId) {
+    tenantService.purge(tenantId);
+}",1,MISSING_FUNCTION_AUTH,CWE-862,A01:2025,API5:2023,Alta
+VULN_0142,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0143,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0144,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0145,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0146,python,OWASP_Benchmark,"def verify_token(token):
+    # Insecure: decoding JWT without verifying secret or algorithm='none'
+    return jwt.decode(token, options={'verify_signature': False})",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0147,python,OWASP_Benchmark,"def login(user, pwd_0):
+    # Plaintext pwd_0 comparison without timing attack protection
+    u = Account_0.query.filter_by(username=user).first()
+    if u and u.pwd_0 == pwd_0:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0148,python,OWASP_Benchmark,"def login(user, pwd_1):
+    # Plaintext pwd_1 comparison without timing attack protection
+    u = Account_1.query.filter_by(username=user).first()
+    if u and u.pwd_1 == pwd_1:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0149,python,OWASP_Benchmark,"def login(user, pwd_2):
+    # Plaintext pwd_2 comparison without timing attack protection
+    u = Account_2.query.filter_by(username=user).first()
+    if u and u.pwd_2 == pwd_2:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0150,python,OWASP_Benchmark,"def login(user, pwd_3):
+    # Plaintext pwd_3 comparison without timing attack protection
+    u = Account_3.query.filter_by(username=user).first()
+    if u and u.pwd_3 == pwd_3:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0151,python,OWASP_Benchmark,"def login(user, pwd_4):
+    # Plaintext pwd_4 comparison without timing attack protection
+    u = Account_4.query.filter_by(username=user).first()
+    if u and u.pwd_4 == pwd_4:
+        return create_session(u)",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0152,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0153,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0154,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0155,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0156,javascript,OWASP_Benchmark,"const decoded = jwt.decode(token); // Not verifying signature
+req.user = decoded;
+next();",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0157,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0158,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0159,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0160,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0161,typescript,OWASP_Benchmark,"const tokenData = jwt.verify(token, '', { algorithms: ['none', 'HS256'] });
+return tokenData;",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0162,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0163,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0164,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0165,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0166,java,OWASP_Benchmark,"Claims claims = Jwts.parser().setSigningKey("""").parseClaimsJws(token).getBody();
+// Accepts unverified or empty signing key",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0167,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0168,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0169,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0170,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0171,java,OWASP_Benchmark,"if (enteredPassword.equals(storedPassword)) {
+    return generateAuthToken(user);
+}",1,BROKEN_AUTHENTICATION,CWE-287,A07:2025,API2:2023,Crítica
+VULN_0172,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_0):
+    return hashlib.md5(pass_0.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0173,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_1):
+    return hashlib.md5(pass_1.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0174,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_2):
+    return hashlib.md5(pass_2.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0175,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_3):
+    return hashlib.md5(pass_3.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0176,python,OWASP_Benchmark,"import hashlib
+def hash_password(pass_4):
+    return hashlib.md5(pass_4.encode()).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0177,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_0):
+    return hashlib.sha1(payload_0).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0178,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_1):
+    return hashlib.sha1(payload_1).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0179,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_2):
+    return hashlib.sha1(payload_2).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0180,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_3):
+    return hashlib.sha1(payload_3).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0181,python,OWASP_Benchmark,"import hashlib
+def create_checksum(payload_4):
+    return hashlib.sha1(payload_4).hexdigest()",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0182,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0183,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0184,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0185,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0186,python,OWASP_Benchmark,"from Crypto.Cipher import DES
+def encrypt(key, plaintext):
+    cipher = DES.new(key, DES.MODE_ECB)
+    return cipher.encrypt(plaintext)",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0187,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_0) {
+  return crypto.createHash('md5').update(pass_0).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0188,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_1) {
+  return crypto.createHash('md5').update(pass_1).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0189,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_2) {
+  return crypto.createHash('md5').update(pass_2).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0190,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_3) {
+  return crypto.createHash('md5').update(pass_3).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0191,javascript,OWASP_Benchmark,"const crypto = require('crypto');
+function hashPwd(pass_4) {
+  return crypto.createHash('md5').update(pass_4).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0192,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0193,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0194,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0195,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0196,typescript,OWASP_Benchmark,"import * as crypto from 'crypto';
+export function generateToken(seed: string) {
+  return crypto.createHash('sha1').update(seed).digest('hex');
+}",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0197,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0198,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0199,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0200,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0201,java,OWASP_Benchmark,"MessageDigest md = MessageDigest.getInstance(""MD5"");
+byte[] hash = md.digest(password.getBytes());",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0202,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0203,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0204,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0205,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0206,java,OWASP_Benchmark,"Cipher cipher = Cipher.getInstance(""DES/ECB/PKCS5Padding"");
+cipher.init(Cipher.ENCRYPT_MODE, secretKey);",1,WEAK_CRYPTO_HASH,CWE-327,A04:2025,NONE,Media
+VULN_0207,python,Controlled_Lab,"JWT_SECRET = 'my-super-secret-jwt-key-9980'
+AWS_ACCESS_KEY = 'MOCK_CLOUD_ACCESS_KEY_SAMPLE_9980'",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0208,python,Controlled_Lab,"JWT_SECRET = 'my-super-secret-jwt-key-9981'
+AWS_ACCESS_KEY = 'MOCK_CLOUD_ACCESS_KEY_SAMPLE_9981'",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0209,python,Controlled_Lab,"JWT_SECRET = 'my-super-secret-jwt-key-9982'
+AWS_ACCESS_KEY = 'MOCK_CLOUD_ACCESS_KEY_SAMPLE_9982'",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0210,python,Controlled_Lab,"JWT_SECRET = 'my-super-secret-jwt-key-9983'
+AWS_ACCESS_KEY = 'MOCK_CLOUD_ACCESS_KEY_SAMPLE_9983'",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0211,python,Controlled_Lab,"JWT_SECRET = 'my-super-secret-jwt-key-9984'
+AWS_ACCESS_KEY = 'MOCK_CLOUD_ACCESS_KEY_SAMPLE_9984'",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0212,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_0_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0213,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_1_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0214,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_2_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0215,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_3_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0216,python,Controlled_Lab,DATABASE_URI = 'postgresql://admin:Password123!@localhost:5432/stage_4_db',1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0217,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9980';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0218,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9981';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0219,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9982';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0220,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9983';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0221,javascript,Controlled_Lab,"const PAYMENT_API_SECRET = 'mock_payment_provider_secret_token_key_9984';
+const API_TOKEN = 'Bearer secret-token-xyz';",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0222,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0223,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0224,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0225,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0226,typescript,Controlled_Lab,export const JWT_PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwgg...';,1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0227,java,Controlled_Lab,"private static final String API_KEY = ""MY_MOCK_MAPS_API_KEY_EXAMPLE_VALUE_123"";
+private String dbPass = ""root99806"";",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0228,java,Controlled_Lab,"private static final String API_KEY = ""MY_MOCK_MAPS_API_KEY_EXAMPLE_VALUE_123"";
+private String dbPass = ""root99816"";",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0229,java,Controlled_Lab,"private static final String API_KEY = ""MY_MOCK_MAPS_API_KEY_EXAMPLE_VALUE_123"";
+private String dbPass = ""root99826"";",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0230,java,Controlled_Lab,"private static final String API_KEY = ""MY_MOCK_MAPS_API_KEY_EXAMPLE_VALUE_123"";
+private String dbPass = ""root99836"";",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0231,java,Controlled_Lab,"private static final String API_KEY = ""MY_MOCK_MAPS_API_KEY_EXAMPLE_VALUE_123"";
+private String dbPass = ""root99846"";",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0232,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0233,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0234,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0235,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0236,yaml,Controlled_Lab,"spring:
+  datasource:
+    password: supersecretpassword123
+    username: root
+jwt:
+  secret: hardcoded_jwt_secret_token_value",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0237,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_0_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9980",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0238,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_1_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9981",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0239,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_2_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9982",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0240,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_3_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9983",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0241,dockerfile,Controlled_Lab,"ENV DB_PASSWORD=admin_stage_4_password_2026
+ENV CLOUD_SECRET_KEY=mock_cloud_storage_secret_key_value_9984",1,HARDCODED_SECRET,CWE-798,A04:2025,API2:2023,Alta
+VULN_0242,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5000)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0243,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5001)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0244,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5002)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0245,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5003)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0246,python,Controlled_Lab,"app.run(debug=True, host='0.0.0.0', port=5004)",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0247,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0248,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0249,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0250,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0251,python,Controlled_Lab,"CORS(app, origins='*', allow_headers='*', methods='*')",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0252,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0253,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0254,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0255,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0256,javascript,Controlled_Lab,"app.use(cors({ origin: '*', credentials: true }));",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0257,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0258,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0259,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0260,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0261,typescript,Controlled_Lab,"app.enableCors({ origin: '*', allowedHeaders: '*', methods: '*' });",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0262,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0263,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0264,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0265,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0266,java,Controlled_Lab,"http.cors().and().csrf().disable();
+// CSRF disabled globally without protection",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0267,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: always
+    include-message: always
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0268,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: always
+    include-message: always
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0269,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: always
+    include-message: always
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0270,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: always
+    include-message: always
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0271,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: always
+    include-message: always
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0272,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8080
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0273,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8081
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0274,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8082
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0275,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8083
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0276,dockerfile,Controlled_Lab,"FROM node:18
+USER root
+EXPOSE 8084
+CMD [""npm"", ""start""]",1,SECURITY_MISCONFIG,CWE-16,A02:2025,API8:2023,Media
+VULN_0277,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0278,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0279,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0280,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0281,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0282,python,NIST_SARD,"import requests
+@app.get('/fetch-url')
+def fetch_remote(url: str):
+    res = requests.get(url)
+    return res.text",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0283,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0284,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0285,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0286,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0287,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0288,python,NIST_SARD,"import urllib.request
+def proxy_download(target_url):
+    return urllib.request.urlopen(target_url).read()",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0289,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_0);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0290,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_1);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0291,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_2);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0292,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_3);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0293,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_4);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0294,javascript,NIST_SARD,"const axios = require('axios');
+app.post('/webhook/test', async (req, res) => {
+  const response = await axios.get(req.body.callback_5);
+  res.send(response.data);
+});",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0295,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_0') target_url_0: string) {
+  const res = await fetch(target_url_0);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0296,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_1') target_url_1: string) {
+  const res = await fetch(target_url_1);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0297,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_2') target_url_2: string) {
+  const res = await fetch(target_url_2);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0298,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_3') target_url_3: string) {
+  const res = await fetch(target_url_3);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0299,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_4') target_url_4: string) {
+  const res = await fetch(target_url_4);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0300,typescript,NIST_SARD,"@Post('proxy')
+async forwardUrl(@Body('target_url_5') target_url_5: string) {
+  const res = await fetch(target_url_5);
+  return await res.json();
+}",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0301,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0302,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0303,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0304,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0305,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0306,java,NIST_SARD,"URL url = new URL(request.getParameter(""avatarUrl""));
+InputStream in = url.openStream();
+IOUtils.copy(in, response.getOutputStream());",1,SSRF,CWE-918,A01:2025,API7:2023,Alta
+VULN_0307,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_0: str):
+    # No rate max_res_0ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_0, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0308,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_1: str):
+    # No rate max_res_1ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_1, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0309,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_2: str):
+    # No rate max_res_2ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_2, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0310,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_3: str):
+    # No rate max_res_3ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_3, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0311,python,RealWorld_Microservices,"@app.post('/api/auth/send-sms-code')
+def send_sms(contact_num_4: str):
+    # No rate max_res_4ing or captcha: SMS bombing / resource exhaustion
+    twilio_client.messages.create(to=contact_num_4, body='Your code')
+    return {'status': 'sent'}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0312,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_0: int = 1000000):
+    # Unrestricted query max_res_0 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_0(max_res_0).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0313,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_1: int = 1000000):
+    # Unrestricted query max_res_1 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_1(max_res_1).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0314,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_2: int = 1000000):
+    # Unrestricted query max_res_2 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_2(max_res_2).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0315,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_3: int = 1000000):
+    # Unrestricted query max_res_3 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_3(max_res_3).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0316,python,RealWorld_Microservices,"@app.get('/api/search')
+def search_records(query: str, max_res_4: int = 1000000):
+    # Unrestricted query max_res_4 allowing resource exhaustion
+    return db.query(Record).filter(Record.name.contains(query)).max_res_4(max_res_4).all()",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0317,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_0er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0318,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_1er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0319,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_2er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0320,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_3er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0321,javascript,RealWorld_Microservices,"router.post('/login/attempt', async (req, res) => {
+  // No rate max_res_4er on sensitive authentication route
+  const isValid = await authService.checkCredentials(req.body.user, req.body.pass);
+  res.json({ ok: isValid });
+});",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0322,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0323,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0324,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0325,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0326,typescript,RealWorld_Microservices,"@Get('/export-bulk')
+async exportEverything() {
+  // Heavy synchronous report without pagination or queue
+  return await this.exportService.dumpEntireDatabase();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0327,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_0 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0328,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_1 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0329,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_2 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0330,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_3 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0331,java,RealWorld_Microservices,"@PostMapping(""/api/v1/auth/forgot-password"")
+public ResponseEntity<?> requestResetEmail(@RequestParam String email) {
+    // No throttling or rate max_res_4 middleware
+    emailService.sendPasswordResetEmail(email);
+    return ResponseEntity.ok().build();
+}",1,RATE_LIMIT_ABSENCE,CWE-770,A06:2025,API4:2023,Media
+VULN_0332,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_0: dict):
+    user = db.query(Client_0).get(id)
+    for k, v in raw_data_0.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0333,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_1: dict):
+    user = db.query(Client_1).get(id)
+    for k, v in raw_data_1.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0334,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_2: dict):
+    user = db.query(Client_2).get(id)
+    for k, v in raw_data_2.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0335,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_3: dict):
+    user = db.query(Client_3).get(id)
+    for k, v in raw_data_3.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0336,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_4: dict):
+    user = db.query(Client_4).get(id)
+    for k, v in raw_data_4.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0337,python,RealWorld_Microservices,"@app.put('/api/users/{id}')
+def update_user(id: int, raw_data_5: dict):
+    user = db.query(Client_5).get(id)
+    for k, v in raw_data_5.items():
+        setattr(user, k, v) # Allows overwriting is_admin, role, balance
+    db.commit()",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0338,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_0.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0339,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_1.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0340,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_2.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0341,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_3.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0342,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_4.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0343,javascript,RealWorld_Microservices,"app.put('/api/profile', async (req, res) => {
+  const updated = await Client_5.findByIdAndUpdate(req.user.id, req.body, { new: true });
+  res.json(updated);
+});",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0344,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0345,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0346,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0347,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0348,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0349,typescript,RealWorld_Microservices,"@Put('/account/:id')
+async updateAccount(@Param('id') id: string, @Body() body: any) {
+  return await this.userRepo.update(id, body);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0350,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_0 updateClient_0(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_0 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0351,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_1 updateClient_1(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_1 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0352,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_2 updateClient_2(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_2 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0353,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_3 updateClient_3(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_3 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0354,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_4 updateClient_4(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_4 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0355,java,RealWorld_Microservices,"@PutMapping(""/api/users/{id}"")
+public Client_5 updateClient_5(@PathVariable Long id, @RequestBody Map<String, Object> updates) {
+    Client_5 user = userRepo.findById(id).orElseThrow();
+    BeanUtils.copyProperties(updates, user);
+    return userRepo.save(user);
+}",1,MASS_ASSIGNMENT,CWE-915,A06:2025,API3:2023,Media
+VULN_0356,python,Controlled_Lab,"try:
+    perform_critical_operation_0(wallet_0, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0357,python,Controlled_Lab,"try:
+    perform_critical_operation_1(wallet_1, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0358,python,Controlled_Lab,"try:
+    perform_critical_operation_2(wallet_2, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0359,python,Controlled_Lab,"try:
+    perform_critical_operation_3(wallet_3, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0360,python,Controlled_Lab,"try:
+    perform_critical_operation_4(wallet_4, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0361,python,Controlled_Lab,"try:
+    perform_critical_operation_5(wallet_5, amount)
+except Exception:
+    pass # Silently ignores critical financial failure",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0362,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0363,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0364,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0365,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0366,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0367,python,Controlled_Lab,"@app.exception_handler(Exception)
+def generic_handler(request, exc):
+    # Leaking complete stack trace and system info to client
+    return JSONResponse(status_code=500, content={'trace': traceback.format_exc(), 'env': dict(os.environ)})",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0368,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0369,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0370,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0371,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0372,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0373,javascript,Controlled_Lab,"try {
+  saveTransaction();
+} catch (e) {
+  // empty catch block, ignoring failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0374,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0375,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0376,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0377,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0378,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0379,typescript,Controlled_Lab,"try {
+  await this.auditLogger.logSecurityEvent(event);
+} catch (err) {
+  /* ignore failure */
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0380,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_0 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0381,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_1 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0382,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_2 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0383,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_3 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0384,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_4 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+VULN_0385,java,Controlled_Lab,"try {
+    processPayment(tx);
+} catch (Exception e) {
+    // Empty catch block hides payment operation_5 failures
+}",1,EXCEPTIONAL_HANDLING,CWE-703,A10:2025,NONE,Baja
+SAFE_0386,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_0 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0387,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_1 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0388,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_2 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0389,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_3 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0390,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_4 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0391,python,Controlled_Lab,"cursor.execute('SELECT * FROM entities_5 WHERE username = %s AND status = %s', (username, 'ACTIVE'))",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0392,python,Controlled_Lab,"stmt = select(Operator_0).where(Operator_0.email == email, Operator_0.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0393,python,Controlled_Lab,"stmt = select(Operator_1).where(Operator_1.email == email, Operator_1.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0394,python,Controlled_Lab,"stmt = select(Operator_2).where(Operator_2.email == email, Operator_2.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0395,python,Controlled_Lab,"stmt = select(Operator_3).where(Operator_3.email == email, Operator_3.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0396,python,Controlled_Lab,"stmt = select(Operator_4).where(Operator_4.email == email, Operator_4.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0397,python,Controlled_Lab,"stmt = select(Operator_5).where(Operator_5.email == email, Operator_5.is_active == True)
+result = db.session.execute(stmt).scalars().first()",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0398,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0399,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0400,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0401,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0402,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0403,python,Controlled_Lab,"hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt(rounds=12))
+is_valid = bcrypt.checkpw(password.encode('utf-8'), hashed_pw)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0404,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_0 = Depends(get_current_user)):
+    order = db.query(Shipment_0).filter(Shipment_0.id == order_id, Shipment_0.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_0 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0405,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_1 = Depends(get_current_user)):
+    order = db.query(Shipment_1).filter(Shipment_1.id == order_id, Shipment_1.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_1 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0406,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_2 = Depends(get_current_user)):
+    order = db.query(Shipment_2).filter(Shipment_2.id == order_id, Shipment_2.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_2 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0407,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_3 = Depends(get_current_user)):
+    order = db.query(Shipment_3).filter(Shipment_3.id == order_id, Shipment_3.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_3 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0408,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_4 = Depends(get_current_user)):
+    order = db.query(Shipment_4).filter(Shipment_4.id == order_id, Shipment_4.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_4 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0409,python,Controlled_Lab,"@app.get('/api/orders/{order_id}')
+def get_order(order_id: int, current_user: Operator_5 = Depends(get_current_user)):
+    order = db.query(Shipment_5).filter(Shipment_5.id == order_id, Shipment_5.user_id == current_user.id).first()
+    if not order:
+        raise HTTPException(status_code=404, detail='Shipment_5 not found')
+    return order",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0410,python,Controlled_Lab,"@app.delete('/api/admin/entities_0/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_0 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0411,python,Controlled_Lab,"@app.delete('/api/admin/entities_1/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_1 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0412,python,Controlled_Lab,"@app.delete('/api/admin/entities_2/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_2 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0413,python,Controlled_Lab,"@app.delete('/api/admin/entities_3/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_3 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0414,python,Controlled_Lab,"@app.delete('/api/admin/entities_4/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_4 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0415,python,Controlled_Lab,"@app.delete('/api/admin/entities_5/{user_id}')
+@require_roles(['ROLE_ADMIN', 'SUPERADMIN'])
+def delete_user(user_id: int, current_user: Operator_5 = Depends(get_current_user)):
+    admin_service.remove_user(user_id)
+    return {'status': 'success'}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0416,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0417,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0418,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0419,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0420,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0421,python,Controlled_Lab,"import subprocess
+subprocess.run(['ping', '-c', '1', safe_ip], check=True, shell=False)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0422,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0423,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0424,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0425,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0426,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0427,python,Controlled_Lab,"secret_key = os.getenv('JWT_SECRET_KEY')
+if not secret_key:
+    raise ValueError('JWT_SECRET_KEY must be set in environment variables')",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0428,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0429,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0430,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0431,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0432,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0433,python,Controlled_Lab,"@limiter.limit('5/minute')
+@app.post('/api/auth/login')
+def login(creds: LoginDto):
+    return auth_service.authenticate(creds)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0434,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0435,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0436,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0437,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0438,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0439,python,Controlled_Lab,"ALLOWED_DOMAINS = {'api.partner.com', 'services.internal.net'}
+def safe_fetch(url):
+    domain = urlparse(url).netloc
+    if domain not in ALLOWED_DOMAINS:
+        raise ValueError('Domain not allowed')
+    return requests.get(url, timeout=5)",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0440,python,Controlled_Lab,"class Operator_0UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0441,python,Controlled_Lab,"class Operator_1UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0442,python,Controlled_Lab,"class Operator_2UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0443,python,Controlled_Lab,"class Operator_3UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0444,python,Controlled_Lab,"class Operator_4UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0445,python,Controlled_Lab,"class Operator_5UpdateDto(BaseModel):
+    name: str
+    bio: Optional[str] = None
+    # Explicit DTO prevents mass assignment of is_admin or balance",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0446,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_0 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0447,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_1 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0448,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_2 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0449,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_3 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0450,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_4 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0451,javascript,Controlled_Lab,"const stmt = db.prepare('SELECT id, name FROM entities_5 WHERE email = ?');
+const user = stmt.get(email);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0452,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0453,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0454,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0455,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0456,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0457,javascript,Controlled_Lab,"const bcrypt = require('bcrypt');
+const isValid = await bcrypt.compare(password, user.passwordHash);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0458,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0459,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0460,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0461,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0462,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0463,javascript,Controlled_Lab,"app.get('/api/invoices/:id', authMiddleware, async (req, res) => {
+  const invoice = await Invoice.findOne({ _id: req.params.id, ownerId: req.user.id });
+  if (!invoice) return res.status(404).send('Not found');
+  res.json(invoice);
+});",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0464,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0465,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0466,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0467,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0468,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0469,javascript,Controlled_Lab,"const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+app.use('/api/', limiter);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0470,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0471,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0472,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0473,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0474,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0475,javascript,Controlled_Lab,"const allowedOrigins = ['https://app.example.com'];
+app.use(cors({ origin: allowedOrigins, credentials: true }));",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0476,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_0() user: Operator_0Entity) {
+  return this.orderService.findOperator_0Shipment_0(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0477,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_1() user: Operator_1Entity) {
+  return this.orderService.findOperator_1Shipment_1(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0478,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_2() user: Operator_2Entity) {
+  return this.orderService.findOperator_2Shipment_2(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0479,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_3() user: Operator_3Entity) {
+  return this.orderService.findOperator_3Shipment_3(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0480,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_4() user: Operator_4Entity) {
+  return this.orderService.findOperator_4Shipment_4(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0481,typescript,Controlled_Lab,"@Get(':id')
+@UseGuards(JwtAuthGuard, OwnershipGuard)
+async findOne(@Param('id') id: string, @CurrentOperator_5() user: Operator_5Entity) {
+  return this.orderService.findOperator_5Shipment_5(id, user.id);
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0482,typescript,Controlled_Lab,"export class UpdateOperator_0ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0483,typescript,Controlled_Lab,"export class UpdateOperator_1ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0484,typescript,Controlled_Lab,"export class UpdateOperator_2ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0485,typescript,Controlled_Lab,"export class UpdateOperator_3ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0486,typescript,Controlled_Lab,"export class UpdateOperator_4ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0487,typescript,Controlled_Lab,"export class UpdateOperator_5ProfileDto {
+  @IsString()
+  @MaxLength(100)
+  readonly displayName: string;
+  @IsOptional()
+  @IsString()
+  readonly bio?: string;
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0488,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0489,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0490,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0491,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0492,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0493,typescript,Controlled_Lab,"const payload = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] });",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0494,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_0 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0495,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_1 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0496,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_2 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0497,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_3 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0498,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_4 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0499,java,Controlled_Lab,"String sql = ""SELECT * FROM entities_5 WHERE username = ? AND status = ?"";
+PreparedStatement ps = conn.prepareStatement(sql);
+ps.setString(1, username);
+ps.setString(2, ""ACTIVE"");
+ResultSet rs = ps.executeQuery();",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0500,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_0/{id}"")
+public ResponseEntity<?> deleteOperator_0(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0501,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_1/{id}"")
+public ResponseEntity<?> deleteOperator_1(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0502,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_2/{id}"")
+public ResponseEntity<?> deleteOperator_2(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0503,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_3/{id}"")
+public ResponseEntity<?> deleteOperator_3(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0504,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_4/{id}"")
+public ResponseEntity<?> deleteOperator_4(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0505,java,Controlled_Lab,"@PreAuthorize(""hasRole('ADMIN')"")
+@DeleteMapping(""/api/v1/entities_5/{id}"")
+public ResponseEntity<?> deleteOperator_5(@PathVariable Long id) {
+    userService.delete(id);
+    return ResponseEntity.noContent().build();
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0506,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0507,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0508,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0509,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0510,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0511,java,Controlled_Lab,"BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+boolean matches = encoder.matches(rawPassword, encodedPassword);",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0512,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_0Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0513,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_1Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0514,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_2Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0515,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_3Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0516,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_4Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0517,java,Controlled_Lab,"@GetMapping(""/api/accounts/{id}"")
+public AccountDTO getAccount(@PathVariable Long id, @AuthenticationPrincipal Operator_5Principal user) {
+    return accountService.findByIdAndOwner(id, user.getId());
+}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0518,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0519,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0520,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0521,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0522,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0523,yaml,Controlled_Lab,"server:
+  error:
+    include-stacktrace: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+spring:
+  datasource:
+    password: ${DB_PASSWORD}",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0524,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0525,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0526,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0527,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0528,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna
+SAFE_0529,dockerfile,Controlled_Lab,"FROM node:18-alpine
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+USER appuser
+CMD [""node"", ""server.js""]",0,SAFE_CODE,CWE-000,NONE,NONE,Ninguna

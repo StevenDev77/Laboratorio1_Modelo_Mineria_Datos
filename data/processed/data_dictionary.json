@@ -1,0 +1,61 @@
+{
+  "dataset_name": "Microservices Security Vulnerabilities Dataset (SEMMA-ESPE)",
+  "version": "1.0.0",
+  "total_records": 550,
+  "description": "Conjunto de datos estructurado y etiquetado con fragmentos de código fuente y configuraciones de microservicios para la clasificación supervisada de vulnerabilidades conforme a OWASP Top 10:2025 y OWASP API Security Top 10:2023.",
+  "fields": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único del registro en el dataset (ej: VULN_001, SAFE_001).",
+      "example": "VULN_042"
+    },
+    "language": {
+      "type": "categorical",
+      "values": ["python", "javascript", "typescript", "java", "yaml", "dockerfile"],
+      "description": "Lenguaje de programación o tipo de archivo de configuración del fragmento de código."
+    },
+    "source": {
+      "type": "categorical",
+      "values": ["OWASP_Benchmark", "NIST_SARD", "RealWorld_Microservices", "Controlled_Lab"],
+      "description": "Procedencia del ejemplo (repositorios públicos curados o casos controlados)."
+    },
+    "code_snippet": {
+      "type": "text",
+      "description": "Texto del fragmento de código fuente o configuración que contiene el patrón a evaluar."
+    },
+    "is_vulnerable": {
+      "type": "binary",
+      "values": [0, 1],
+      "description": "Indicador binario: 1 si el fragmento presenta una debilidad/vulnerabilidad, 0 si es código seguro."
+    },
+    "category": {
+      "type": "categorical",
+      "description": "Clase técnica específica del hallazgo o SAFE_CODE si no es vulnerable."
+    },
+    "cwe": {
+      "type": "string",
+      "description": "Identificador Common Weakness Enumeration asociado a la debilidad (o CWE-000 si es seguro)."
+    },
+    "owasp_top10": {
+      "type": "categorical",
+      "values": [
+        "A01:2025", "A02:2025", "A04:2025", "A05:2025",
+        "A06:2025", "A07:2025", "A09:2025", "A10:2025", "NONE"
+      ],
+      "description": "Categoría asignada bajo el estándar OWASP Top 10:2025."
+    },
+    "owasp_api": {
+      "type": "categorical",
+      "values": [
+        "API1:2023", "API2:2023", "API3:2023", "API4:2023",
+        "API5:2023", "API7:2023", "API8:2023", "NONE"
+      ],
+      "description": "Categoría asignada bajo el estándar OWASP API Security Top 10:2023."
+    },
+    "severity": {
+      "type": "categorical",
+      "values": ["Crítica", "Alta", "Media", "Baja", "Ninguna"],
+      "description": "Nivel de severidad técnica estimada según impacto y explotabilidad."
+    }
+  }
+}

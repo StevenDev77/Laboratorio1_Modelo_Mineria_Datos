@@ -1,0 +1,96 @@
+{
+  "model_evaluated": "Support_Vector_Machine",
+  "test_sample_size": 80,
+  "macro_avg_f1": 1.0,
+  "weighted_avg_f1": 1.0,
+  "accuracy": 1.0,
+  "binary_metrics": {
+    "tp": 58,
+    "tn": 22,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0
+  },
+  "per_class_metrics": {
+    "BOLA_IDOR": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6.0
+    },
+    "BROKEN_AUTHENTICATION": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 4.0
+    },
+    "COMMAND_INJECTION": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6.0
+    },
+    "EXCEPTIONAL_HANDLING": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 4.0
+    },
+    "HARDCODED_SECRET": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 5.0
+    },
+    "MASS_ASSIGNMENT": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 3.0
+    },
+    "MISSING_FUNCTION_AUTH": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 4.0
+    },
+    "RATE_LIMIT_ABSENCE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 3.0
+    },
+    "SAFE_CODE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 22.0
+    },
+    "SECURITY_MISCONFIG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6.0
+    },
+    "SQL_INJECTION": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6.0
+    },
+    "SSRF": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 5.0
+    },
+    "WEAK_CRYPTO_HASH": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 6.0
+    }
+  }
+}

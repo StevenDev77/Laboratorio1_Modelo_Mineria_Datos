@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Vulnerabilidades - test_microservices</title>
+    <style>
+        :root {
+            --primary: #2d3436;
+            --secondary: #0984e3;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --border: #dfe6e9;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 30px 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e3799, #0c2461);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .header h1 { margin: 0 0 10px 0; font-size: 28px; }
+        .header p { margin: 0; opacity: 0.9; }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        .metric-label { font-size: 14px; color: #636e72; text-transform: uppercase; }
+        .finding-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .finding-header {
+            background: #f1f2f6;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .finding-id { font-weight: bold; font-size: 16px; margin-right: 10px; }
+        .finding-body { padding: 20px; }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            margin-right: 6px;
+        }
+        .badge-owasp { background-color: #6c5ce7; }
+        .badge-api { background-color: #00cec9; color: #2d3436; }
+        .badge-cwe { background-color: #b2bec3; color: #2d3436; }
+        code { background: #f1f2f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+        }
+        summary { cursor: pointer; color: var(--secondary); font-weight: bold; margin-top: 10px; }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #74b9ff;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VulnMiner: Reporte de Auditoría y Seguridad de Microservicios</h1>
+            <p><strong>Proyecto Analizado:</strong> test_microservices | <strong>Estándares:</strong> OWASP Top 10:2025 & OWASP API Security Top 10:2023</p>
+            <p><strong>Motor de Minería de Datos:</strong> Clasificador Supervisado SEMMA (Sin LLMs)</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Microservicios</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">11</div>
+                <div class="metric-label">Archivos Analizados</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: #d63031;">24</div>
+                <div class="metric-label">Hallazgos Potenciales</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" style="color: #e17055;">11</div>
+                <div class="metric-label">Críticos / Altos</div>
+            </div>
+        </div>
+
+        <h2>Detalle de Hallazgos Clasificados</h2>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #001</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A02:2025</span>
+                    <span class="badge badge-api">API8:2023</span>
+                    <span class="badge badge-cwe">CWE-16</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>60.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>api-gateway</code> | <strong>Archivo:</strong> <code>api-gateway/gateway.js</code> (Línea: 3)</p>
+                <p><strong>Descripción:</strong> Configuración de seguridad incorrecta o modo depuración activo</p>
+                <p><strong>Recomendación:</strong> Deshabilitar banners de depuración, restringir orígenes permitidos en CORS, ejecutar contenedores como usuarios no privilegiados y aplicar políticas mínimas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>const app = express();
+
+// Security Misconfiguration: CORS permisivo inseguro con comodin '*'
+app.use(cors({ origin: '*', credentials: true }));</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #002</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A02:2025</span>
+                    <span class="badge badge-api">API8:2023</span>
+                    <span class="badge badge-cwe">CWE-16</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>71.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>api-gateway</code> | <strong>Archivo:</strong> <code>api-gateway/gateway.js</code> (Línea: 6)</p>
+                <p><strong>Descripción:</strong> Configuración de seguridad incorrecta o modo depuración activo</p>
+                <p><strong>Recomendación:</strong> Deshabilitar banners de depuración, restringir orígenes permitidos en CORS, ejecutar contenedores como usuarios no privilegiados y aplicar políticas mínimas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>// Security Misconfiguration: CORS permisivo inseguro con comodin '*'
+app.use(cors({ origin: '*', credentials: true }));</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #003</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A05:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-78</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>83.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 27)</p>
+                <p><strong>Descripción:</strong> Inyección de comandos del sistema operativo sin sanitización</p>
+                <p><strong>Recomendación:</strong> Evitar invocar shells del SO; emplear APIs nativas del lenguaje o pasar argumentos como listas separadas sin interprete shell habilitado.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>@app.post("/api/v1/orders/diagnostics")
+def run_diagnostic(host: str):
+    cmd = "ping -c 1 " + host
+    return os.system(cmd)</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #004</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A05:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-78</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>74.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 29)</p>
+                <p><strong>Descripción:</strong> Inyección de comandos del sistema operativo sin sanitización</p>
+                <p><strong>Recomendación:</strong> Evitar invocar shells del SO; emplear APIs nativas del lenguaje o pasar argumentos como listas separadas sin interprete shell habilitado.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>cmd = "ping -c 1 " + host
+    return os.system(cmd)
+
+# Vulnerabilidad Rate Limit Absence (OWASP A06:2025, OWASP API API4:2023, CWE-770)</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #005</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A06:2025</span>
+                    <span class="badge badge-api">API4:2023</span>
+                    <span class="badge badge-cwe">CWE-770</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>55.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 31)</p>
+                <p><strong>Descripción:</strong> Ausencia de límite de consumo de recursos o rate limiting en endpoint</p>
+                <p><strong>Recomendación:</strong> Implementar rate limiting mediante API Gateways o middlewares (e.g. express-rate-limit, slowapi), limitar tamaño de payload y paginar consultas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code># Vulnerabilidad Rate Limit Absence (OWASP A06:2025, OWASP API API4:2023, CWE-770)
+# Envío masivo sin middleware de throttling o limitación de tasa
+@app.post("/api/v1/orders/send-sms-notification")</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #006</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A06:2025</span>
+                    <span class="badge badge-api">API4:2023</span>
+                    <span class="badge badge-cwe">CWE-770</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>74.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 33)</p>
+                <p><strong>Descripción:</strong> Ausencia de límite de consumo de recursos o rate limiting en endpoint</p>
+                <p><strong>Recomendación:</strong> Implementar rate limiting mediante API Gateways o middlewares (e.g. express-rate-limit, slowapi), limitar tamaño de payload y paginar consultas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code># Envío masivo sin middleware de throttling o limitación de tasa
+@app.post("/api/v1/orders/send-sms-notification")
+def send_sms_notification(phone: str, message: str):
+    # No rate limiting or captcha: SMS bombing / resource exhaustion</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #007</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A06:2025</span>
+                    <span class="badge badge-api">API4:2023</span>
+                    <span class="badge badge-cwe">CWE-770</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>65.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 35)</p>
+                <p><strong>Descripción:</strong> Ausencia de límite de consumo de recursos o rate limiting en endpoint</p>
+                <p><strong>Recomendación:</strong> Implementar rate limiting mediante API Gateways o middlewares (e.g. express-rate-limit, slowapi), limitar tamaño de payload y paginar consultas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>def send_sms_notification(phone: str, message: str):
+    # No rate limiting or captcha: SMS bombing / resource exhaustion
+    sms_gateway.dispatch(to=phone, content=message)
+    return {"status": "dispatched"}</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #008</span>
+                    <span class="badge" style="background-color: #00b894">Baja</span>
+                    <span class="badge badge-owasp">A10:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-703</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>74.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 43)</p>
+                <p><strong>Descripción:</strong> Manejo inadecuado de excepciones o silenciamiento de fallas críticas</p>
+                <p><strong>Recomendación:</strong> Manejar excepciones específicas, registrar detalles completos en logs internos y responder al cliente con mensajes de error normalizados sin detalles técnicos.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>try:
+        payment_gateway.charge(order_id)
+    except Exception:
+        pass # Silently ignores critical financial failure</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #009</span>
+                    <span class="badge" style="background-color: #00b894">Baja</span>
+                    <span class="badge badge-owasp">A10:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-703</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>69.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 45)</p>
+                <p><strong>Descripción:</strong> Manejo inadecuado de excepciones o silenciamiento de fallas críticas</p>
+                <p><strong>Recomendación:</strong> Manejar excepciones específicas, registrar detalles completos en logs internos y responder al cliente con mensajes de error normalizados sin detalles técnicos.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>except Exception:
+        pass # Silently ignores critical financial failure
+    return {"message": "processed"}</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #010</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A05:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-78</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>79.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 30)</p>
+                <p><strong>Descripción:</strong> Inyección de comandos del sistema operativo sin sanitización</p>
+                <p><strong>Recomendación:</strong> Evitar invocar shells del SO; emplear APIs nativas del lenguaje o pasar argumentos como listas separadas sin interprete shell habilitado.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>cmd = "ping -c 1 " + host
+    return os.system(cmd)</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #011</span>
+                    <span class="badge" style="background-color: #00b894">Baja</span>
+                    <span class="badge badge-owasp">A10:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-703</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>69.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>order-service</code> | <strong>Archivo:</strong> <code>order-service/app/main.py</code> (Línea: 46)</p>
+                <p><strong>Descripción:</strong> Manejo inadecuado de excepciones o silenciamiento de fallas críticas</p>
+                <p><strong>Recomendación:</strong> Manejar excepciones específicas, registrar detalles completos en logs internos y responder al cliente con mensajes de error normalizados sin detalles técnicos.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>except Exception:
+        pass # Silently ignores critical financial failure
+    return {"message": "processed"}</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #012</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A02:2025</span>
+                    <span class="badge badge-api">API8:2023</span>
+                    <span class="badge badge-cwe">CWE-16</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>66.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>product-service</code> | <strong>Archivo:</strong> <code>product-service/application.yml</code> (Línea: 3)</p>
+                <p><strong>Descripción:</strong> Configuración de seguridad incorrecta o modo depuración activo</p>
+                <p><strong>Recomendación:</strong> Deshabilitar banners de depuración, restringir orígenes permitidos en CORS, ejecutar contenedores como usuarios no privilegiados y aplicar políticas mínimas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>error:
+    # Vulnerabilidad Security Misconfiguration (OWASP A02:2025, OWASP API API8:2023, CWE-16)
+    include-stacktrace: always
+    include-message: always</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #013</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A02:2025</span>
+                    <span class="badge badge-api">API8:2023</span>
+                    <span class="badge badge-cwe">CWE-16</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>67.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>product-service</code> | <strong>Archivo:</strong> <code>product-service/application.yml</code> (Línea: 5)</p>
+                <p><strong>Descripción:</strong> Configuración de seguridad incorrecta o modo depuración activo</p>
+                <p><strong>Recomendación:</strong> Deshabilitar banners de depuración, restringir orígenes permitidos en CORS, ejecutar contenedores como usuarios no privilegiados y aplicar políticas mínimas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>include-stacktrace: always
+    include-message: always
+
+management:</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #014</span>
+                    <span class="badge" style="background-color: #e17055">Alta</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-798</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>60.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>product-service</code> | <strong>Archivo:</strong> <code>product-service/application.yml</code> (Línea: 13)</p>
+                <p><strong>Descripción:</strong> Credenciales, secretos JWT o llaves privadas embebidas en código/configuración</p>
+                <p><strong>Recomendación:</strong> Extraer secretos a variables de entorno, almacenes seguros (Vault, AWS Secrets Manager) e integrarlos con inyección en tiempo de despliegue.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/productdb</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #015</span>
+                    <span class="badge" style="background-color: #e17055">Alta</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-798</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>75.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/auth.service.ts</code> (Línea: 3)</p>
+                <p><strong>Descripción:</strong> Credenciales, secretos JWT o llaves privadas embebidas en código/configuración</p>
+                <p><strong>Recomendación:</strong> Extraer secretos a variables de entorno, almacenes seguros (Vault, AWS Secrets Manager) e integrarlos con inyección en tiempo de despliegue.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>export class AuthService {
+    // Vulnerabilidad Hardcoded Secret (OWASP A04:2025, OWASP API API2:2023, CWE-798)
+    private jwtSecret = "supersecretpassword123456";</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #016</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-327</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>79.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/auth.service.ts</code> (Línea: 7)</p>
+                <p><strong>Descripción:</strong> Uso de algoritmo criptográfico débil u obsoleto (MD5/SHA1/DES)</p>
+                <p><strong>Recomendación:</strong> Adoptar funciones modernas de derivación de claves como Argon2id, PBKDF2 o bcrypt para credenciales y AES-GCM para cifrado simétrico.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>// Vulnerabilidad Weak Crypto / Hash (OWASP A04:2025, CWE-327)
+    // Uso de MD5 para almacenar o verificar credenciales
+    hashPassword(pwd: string): string {
+        return crypto.createHash('md5').update(pwd).digest('hex');</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #017</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-327</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>81.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/auth.service.ts</code> (Línea: 9)</p>
+                <p><strong>Descripción:</strong> Uso de algoritmo criptográfico débil u obsoleto (MD5/SHA1/DES)</p>
+                <p><strong>Recomendación:</strong> Adoptar funciones modernas de derivación de claves como Argon2id, PBKDF2 o bcrypt para credenciales y AES-GCM para cifrado simétrico.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>hashPassword(pwd: string): string {
+        return crypto.createHash('md5').update(pwd).digest('hex');
+    }</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #018</span>
+                    <span class="badge" style="background-color: #e17055">Alta</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-798</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>81.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/auth.service.ts</code> (Línea: 5)</p>
+                <p><strong>Descripción:</strong> Credenciales, secretos JWT o llaves privadas embebidas en código/configuración</p>
+                <p><strong>Recomendación:</strong> Extraer secretos a variables de entorno, almacenes seguros (Vault, AWS Secrets Manager) e integrarlos con inyección en tiempo de despliegue.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>// Vulnerabilidad Hardcoded Secret (OWASP A04:2025, OWASP API API2:2023, CWE-798)
+    private jwtSecret = "supersecretpassword123456";</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #019</span>
+                    <span class="badge" style="background-color: #fdcb6e; color: #2d3436;">Media</span>
+                    <span class="badge badge-owasp">A04:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-327</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>81.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/auth.service.ts</code> (Línea: 10)</p>
+                <p><strong>Descripción:</strong> Uso de algoritmo criptográfico débil u obsoleto (MD5/SHA1/DES)</p>
+                <p><strong>Recomendación:</strong> Adoptar funciones modernas de derivación de claves como Argon2id, PBKDF2 o bcrypt para credenciales y AES-GCM para cifrado simétrico.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>hashPassword(pwd: string): string {
+        return crypto.createHash('md5').update(pwd).digest('hex');
+    }</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #020</span>
+                    <span class="badge" style="background-color: #e17055">Alta</span>
+                    <span class="badge badge-owasp">A01:2025</span>
+                    <span class="badge badge-api">API1:2023</span>
+                    <span class="badge badge-cwe">CWE-639</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>69.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/users.controller.ts</code> (Línea: 9)</p>
+                <p><strong>Descripción:</strong> Autorización insuficiente a nivel de objeto (BOLA/IDOR)</p>
+                <p><strong>Recomendación:</strong> Verificar en cada endpoint que el recurso solicitado pertenezca al usuario del token de sesión (verificación de pertenencia a nivel de servicio/repositorio).</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>@Get(':id')
+    async findOne(@Param('id') id: string) {
+        return this.accountService.getAccountById(id);
+    }</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #021</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A07:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-287</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>65.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/users.controller.ts</code> (Línea: 15)</p>
+                <p><strong>Descripción:</strong> Mecanismo defectuoso de autenticación o verificación de token JWT insegura</p>
+                <p><strong>Recomendación:</strong> Validar firmas de tokens JWT con algoritmos robustos (RS256/ES256), forzar autenticación mutua o verificación de expiración.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>// Decodifica el token sin verificar la firma criptográfica ni expiración
+    @Post('profile-data')
+    async getProfileData(@Body('token') token: string) {
+        const decoded = jwt.decode(token);</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #022</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A07:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-287</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>76.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/users.controller.ts</code> (Línea: 17)</p>
+                <p><strong>Descripción:</strong> Mecanismo defectuoso de autenticación o verificación de token JWT insegura</p>
+                <p><strong>Recomendación:</strong> Validar firmas de tokens JWT con algoritmos robustos (RS256/ES256), forzar autenticación mutua o verificación de expiración.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>async getProfileData(@Body('token') token: string) {
+        const decoded = jwt.decode(token);
+        return decoded;
+    }</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #023</span>
+                    <span class="badge" style="background-color: #e17055">Alta</span>
+                    <span class="badge badge-owasp">A05:2025</span>
+                    <span class="badge badge-api">N/A</span>
+                    <span class="badge badge-cwe">CWE-89</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>70.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/users.controller.ts</code> (Línea: 2)</p>
+                <p><strong>Descripción:</strong> Inyección SQL mediante concatenación directa de parámetros en consulta</p>
+                <p><strong>Recomendación:</strong> Utilizar consultas parametrizadas (PreparedStatements), ORMs con binding seguro de parámetros y validación estricta de entradas.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import * as jwt from 'jsonwebtoken';</code></pre>
+                </details>
+            </div>
+        </div>
+        
+        <div class="finding-card">
+            <div class="finding-header">
+                <div>
+                    <span class="finding-id">HALLAZGO #024</span>
+                    <span class="badge" style="background-color: #d63031">Crítica</span>
+                    <span class="badge badge-owasp">A07:2025</span>
+                    <span class="badge badge-api">API2:2023</span>
+                    <span class="badge badge-cwe">CWE-287</span>
+                </div>
+                <div class="confidence">Confianza Modelo: <strong>78.0%</strong></div>
+            </div>
+            <div class="finding-body">
+                <p><strong>Microservicio:</strong> <code>user-service</code> | <strong>Archivo:</strong> <code>user-service/src/users.controller.ts</code> (Línea: 18)</p>
+                <p><strong>Descripción:</strong> Mecanismo defectuoso de autenticación o verificación de token JWT insegura</p>
+                <p><strong>Recomendación:</strong> Validar firmas de tokens JWT con algoritmos robustos (RS256/ES256), forzar autenticación mutua o verificación de expiración.</p>
+                <details>
+                    <summary>Ver Evidencia Técnica (Fragmento de Código)</summary>
+                    <pre><code>async getProfileData(@Body('token') token: string) {
+        const decoded = jwt.decode(token);
+        return decoded;</code></pre>
+                </details>
+            </div>
+        </div>
+        
+
+        <div class="footer">
+            <p>Generado automáticamente por VulnMiner CLI | Universidad de las Fuerzas Armadas ESPE</p>
+        </div>
+    </div>
+</body>
+</html>
